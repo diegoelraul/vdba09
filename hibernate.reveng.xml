@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="compra" catalog="datospeliculas" class="Compra">
+		<primary-key>
+			<generator class="foreign"></generator>
+		</primary-key>
+	</table>
+	<table name="pelicula" catalog="datospeliculas" class="Pelicula">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="reparto" catalog="datospeliculas" class="Reparto">
+		<primary-key>
+			<generator class="foreign"></generator>
+		</primary-key>
+	</table>
+<table name="usuario" catalog="datospeliculas" class="Usuario">
+	<primary-key>
+		<generator class="assigned"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>
