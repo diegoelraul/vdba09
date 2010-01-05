@@ -1,7 +1,7 @@
-package modelo.compra;
 // default package
 
 import java.util.Date;
+import modelo.compra.AbstractCompraId;
 
 
 /**

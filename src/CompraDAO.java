@@ -1,4 +1,3 @@
-package modelo.pelicula;
 // default package
 
 import hibernate.BaseHibernateDAO;
@@ -10,30 +9,23 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Example;
 
 /**
- 	* A data access object (DAO) providing persistence and search support for Pelicula entities.
+ 	* A data access object (DAO) providing persistence and search support for Compra entities.
  			* Transaction control of the save(), update() and delete() operations 
 		can directly support Spring container-managed transactions or they can be augmented	to handle user-managed Spring transactions. 
 		Each of these methods provides additional information for how to configure it for the desired type of transaction control. 	
-	 * @see .Pelicula
+	 * @see .Compra
   * @author MyEclipse Persistence Tools 
  */
 
-public class PeliculaDAO extends BaseHibernateDAO  {
-    private static final Log log = LogFactory.getLog(PeliculaDAO.class);
+public class CompraDAO extends BaseHibernateDAO  {
+    private static final Log log = LogFactory.getLog(CompraDAO.class);
 	//property constants
-	public static final String NOMBRE_DIRECTOR = "nombreDirector";
-	public static final String APELLIDOS_DIRECTOR = "apellidosDirector";
-	public static final String IDIOMA = "idioma";
-	public static final String COSTE = "coste";
-	public static final String PRECIO = "precio";
-	public static final String DISPONIBILIDAD = "disponibilidad";
-	public static final String PATH_IMAGEN = "pathImagen";
 
 
 
     
-    public void save(Pelicula transientInstance) {
-        log.debug("saving Pelicula instance");
+    public void save(Compra transientInstance) {
+        log.debug("saving Compra instance");
         try {
             getSession().save(transientInstance);
             log.debug("save successful");
@@ -43,8 +35,8 @@ public class PeliculaDAO extends BaseHibernateDAO  {
         }
     }
     
-	public void delete(Pelicula persistentInstance) {
-        log.debug("deleting Pelicula instance");
+	public void delete(Compra persistentInstance) {
+        log.debug("deleting Compra instance");
         try {
             getSession().delete(persistentInstance);
             log.debug("delete successful");
@@ -54,11 +46,11 @@ public class PeliculaDAO extends BaseHibernateDAO  {
         }
     }
     
-    public Pelicula findById( java.lang.String id) {
-        log.debug("getting Pelicula instance with id: " + id);
+    public Compra findById( CompraId id) {
+        log.debug("getting Compra instance with id: " + id);
         try {
-            Pelicula instance = (Pelicula) getSession()
-                    .get("Pelicula", id);
+            Compra instance = (Compra) getSession()
+                    .get("Compra", id);
             return instance;
         } catch (RuntimeException re) {
             log.error("get failed", re);
@@ -68,11 +60,11 @@ public class PeliculaDAO extends BaseHibernateDAO  {
     
     
     @SuppressWarnings("unchecked")
-	public List findByExample(Pelicula instance) {
-        log.debug("finding Pelicula instance by example");
+	public List findByExample(Compra instance) {
+        log.debug("finding Compra instance by example");
         try {
             List results = getSession()
-                    .createCriteria("Pelicula")
+                    .createCriteria("Compra")
                     .add(Example.create(instance))
             .list();
             log.debug("find by example successful, result size: " + results.size());
@@ -85,10 +77,10 @@ public class PeliculaDAO extends BaseHibernateDAO  {
     
     @SuppressWarnings("unchecked")
 	public List findByProperty(String propertyName, Object value) {
-      log.debug("finding Pelicula instance with property: " + propertyName
+      log.debug("finding Compra instance with property: " + propertyName
             + ", value: " + value);
       try {
-         String queryString = "from Pelicula as model where model." 
+         String queryString = "from Compra as model where model." 
          						+ propertyName + "= ?";
          Query queryObject = getSession().createQuery(queryString);
 		 queryObject.setParameter(0, value);
@@ -99,61 +91,12 @@ public class PeliculaDAO extends BaseHibernateDAO  {
       }
 	}
 
-	@SuppressWarnings("unchecked")
-	public List findByNombreDirector(Object nombreDirector
-	) {
-		return findByProperty(NOMBRE_DIRECTOR, nombreDirector
-		);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List findByApellidosDirector(Object apellidosDirector
-	) {
-		return findByProperty(APELLIDOS_DIRECTOR, apellidosDirector
-		);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List findByIdioma(Object idioma
-	) {
-		return findByProperty(IDIOMA, idioma
-		);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List findByCoste(Object coste
-	) {
-		return findByProperty(COSTE, coste
-		);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List findByPrecio(Object precio
-	) {
-		return findByProperty(PRECIO, precio
-		);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List findByDisponibilidad(Object disponibilidad
-	) {
-		return findByProperty(DISPONIBILIDAD, disponibilidad
-		);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List findByPathImagen(Object pathImagen
-	) {
-		return findByProperty(PATH_IMAGEN, pathImagen
-		);
-	}
-	
 
 	@SuppressWarnings("unchecked")
 	public List findAll() {
-		log.debug("finding all Pelicula instances");
+		log.debug("finding all Compra instances");
 		try {
-			String queryString = "from Pelicula";
+			String queryString = "from Compra";
 	         Query queryObject = getSession().createQuery(queryString);
 			 return queryObject.list();
 		} catch (RuntimeException re) {
@@ -162,10 +105,10 @@ public class PeliculaDAO extends BaseHibernateDAO  {
 		}
 	}
 	
-    public Pelicula merge(Pelicula detachedInstance) {
-        log.debug("merging Pelicula instance");
+    public Compra merge(Compra detachedInstance) {
+        log.debug("merging Compra instance");
         try {
-            Pelicula result = (Pelicula) getSession()
+            Compra result = (Compra) getSession()
                     .merge(detachedInstance);
             log.debug("merge successful");
             return result;
@@ -175,8 +118,8 @@ public class PeliculaDAO extends BaseHibernateDAO  {
         }
     }
 
-    public void attachDirty(Pelicula instance) {
-        log.debug("attaching dirty Pelicula instance");
+    public void attachDirty(Compra instance) {
+        log.debug("attaching dirty Compra instance");
         try {
             getSession().saveOrUpdate(instance);
             log.debug("attach successful");
@@ -186,8 +129,8 @@ public class PeliculaDAO extends BaseHibernateDAO  {
         }
     }
     
-    public void attachClean(Pelicula instance) {
-        log.debug("attaching clean Pelicula instance");
+    public void attachClean(Compra instance) {
+        log.debug("attaching clean Compra instance");
         try {
             getSession().lock(instance, LockMode.NONE);
             log.debug("attach successful");
