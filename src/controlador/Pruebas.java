@@ -4,8 +4,8 @@ import hibernate.HibernateSessionFactory;
 
 //import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.Transaction;
 import java.util.*;
 import modelo.compra.*;
 import modelo.pelicula.*;
@@ -14,13 +14,7 @@ import modelo.pelicula.*;
 
 public class Pruebas {
 	
-	
-	
-	//private static SessionFactory sessionFactory;
-	private HibernateSessionFactory hibernateSessionFactory;
-	
 	public Pruebas(){}
-	
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public void testLecturaBD() {
@@ -31,44 +25,37 @@ public class Pruebas {
 		resultado = cdao.findAll();
 		Iterator ite =((java.util.List) resultado).iterator();
 		
+		/* se coge el contexto. Ojo a la linea añadida en hibernate.cfg.xml */
+    	Session session = HibernateSessionFactory.getSession().getSessionFactory().getCurrentSession();
 		
-    	Session session = HibernateSessionFactory.getSession().getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-		
-		Compra c = null; //(Compra) resultado.get(0);
-		
+    	//iteramos sobre las compras realizadas...
 		while (ite.hasNext()){
-			c = (Compra) ite.next();
+			Compra c = (Compra) ite.next();
 			System.out.println("Pelicula: " + c.getId().getPelicula() + " Comprado por: " + c.getId().getUsuario());
 		}
 		
+		/* comienzo transaccion bbdd */
+		session.beginTransaction();
 		/* prueba de salvado. ok */
-		cdao = new CompraDAO();
 		CompraId ci = new CompraId("Eva83", "A, B, C... Manhattan", new Date(2001,11, 03));
 		Compra b = new Compra(ci);
+		//cdao.save(b); /* salvar objetos desde session!!! muy importante */
+		session.save(b);
 		
-		cdao.save(b);
-		HibernateSessionFactory.getSession().flush();
-		/*
-		cdao = new CompraDAO();
-		ci = new CompraId("Eva83", "Nabonga, el gorila", new Date(2001,11, 03));
-		b = new Compra(ci);
-		
-		cdao.save(b);
-		*/
-		PeliculaDAO pdao = new PeliculaDAO();
-		
+		/* más de una transaccion. Metemos una peli */
+		//PeliculaDAO pdao = new PeliculaDAO();
 		Pelicula p = new Pelicula("pruebas", "p", "p", "spanish",1.00, 1.00, 12, "nulo" );
-		pdao.save(p);
+		// idem. no funciona. pdao.save(p);
+		session.save(p);
+		session.getTransaction().commit();
+		// no hace falta. session.close(); aqui
 		
 		
-		//super(titulo, nombreDirector, apellidosDirector, idioma, coste, precio, disponibilidad, pathImagen); 
-		
-		tx.commit();
-		HibernateSessionFactory.closeSession();
-		//session.close()
 		} catch (Exception e){
-			System.out.println(e.toString());
+			System.err.print(e.toString());
+			HibernateSessionFactory.getSession().getSessionFactory().getCurrentSession().getTransaction().rollback();
+		} finally {
+			HibernateSessionFactory.getSession().getSessionFactory().getCurrentSession().close();
 		}
 	}
 
