@@ -3,7 +3,13 @@
 	private Usuario usuario;
 
 	private boolean estaLoggeado() {
-		return (usuario != null);
+		//return (usuario != null);
+		return true;
+	}
+	
+	private String obtenerNombreUsuario() {
+		//return usuario.getIdUsuario();
+		return "pepe";
 	}
 
 	private void comprobarLogin() throws NullPointerException {
@@ -31,18 +37,28 @@
     <table cellspacing=0 cellpadding=0 width="100%">
       <tr>
         <td class="logomenu" width="50px">&nbsp;</td>
-        <td class="menu"  width="100px">Home</td>
+        <td class="menu"  width="100px">
+        	<a href="./index.jsp">Home</a>
+        </td>
         <!-- USUARIOS REGISTRADOS -->
         <%
 			if (estaLoggeado()) { 
-        		out.println("<td class=\"menu\" width=\"150px\">Mis compras</td>");
+			%>
+        		<td class="menu" width="150px">
+        			<a href="./compras.jsp">Mis compras</a>
+        		</td>
+        	<%
         	}
         %>
         
         <!-- ADMINISTRADORES -->
         <%
 			if (estaLoggeado()) { 
-        		out.println("<td class=\"menu\" width=\"150px\">Administraci&oacute;n</td>");
+			%>
+        		<td class="menu" width="150px">
+        			<a href="./adminsitracion.jsp">Administraci&oacute;n</a>
+        		</td>
+        	<%
         	}
         %>
 

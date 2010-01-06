@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>FILMS 2010</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -55,9 +55,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 			</div>
 			<div id="user" style="float:right;">
-			   <%@include file="/inc/user.jsp"%>
-			</div>
-			
+			<%
+			if (estaLoggeado()) { %>
+        		Bienvenido,         		
+			<%
+				out.println(obtenerNombreUsuario() + "<br />");
+			} else { %>
+        		<%@include file="/inc/login.jsp"%>
+			<%  } %>
+			</div> 
 			<%
 			if (estaLoggeado()) { %>
         		<div id="config" style="float:right;">
