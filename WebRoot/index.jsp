@@ -45,12 +45,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<b>Director: </b>#NOM_DIRECTOR# #APELLIDOS_DIRECTOR#<br/>
 				<b>Idioma: </b>#IDIOMA#<br/>
-				<b>Coste: </b>#COSTE# euros<br/>
+				<b>Precio: </b>#PRECIO# euros<br/>
 				<b>Disponibilidad: </b>#DISPONIBILIDAD#<br/>
 				<!-- Si usuario logueado -->
 				<p align="right">
 					<input type="submit" value="Comprar"/>
-					<input type="submit" value="Volver al &iacute;ndice"/>
+					<%
+					out.println("<input type=\"submit\" value=\"Volver\" "); 
+					out.println("onclick=\"window.location='"+request.getScheme()+"://"+request.getServerName()+":"+
+								request.getServerPort()+request.getContextPath()+"/index.jsp'\"/>");
+					%>					 
 				</p>
 				
 			</div>

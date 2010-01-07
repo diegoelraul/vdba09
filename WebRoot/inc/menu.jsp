@@ -56,7 +56,7 @@
 			if (estaLoggeado()) { 
 			%>
         		<td class="menu" width="150px">
-        			<a href="./adminsitracion.jsp">Administraci&oacute;n</a>
+        			<a href="./admin/administracion.jsp">Administraci&oacute;n</a>
         		</td>
         	<%
         	}

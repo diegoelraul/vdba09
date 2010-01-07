@@ -56,25 +56,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td></td>
 					</tr>
 				</table>
-				<table>
-					<tr>
-						<td>Titular</td>
-						<td colspan=2><input type="text" size=50/></td>
+				<br/>
+				<table border=1>
+					<tr style="text-align:center;">
+						<td colspan=4><h3>Datos de Pago</h3></td>
 					</tr>
 					<tr>
 						<td>Num. Cuenta</td>
-						<td><input type="text" size=37/></td>
-						<td><input type="text" size=10/></td>
+						<td colspan=3>
+							<input type="text" size=5/>
+							<input type="text" size=5/>
+							<input type="text" size=5/>
+							<input type="text" size=5/></td>
 					</tr>
 					<tr>
-						<td colspan=3 style="text-align:right">
+						<td>Caducidad (mm/aaaa)</td>
+						<td>
+							<input type="text" size=3/>
+							<input type="text" size=5/></td>
+						<td>CVV2</td>
+						<td style="text-align:right;"><input type="text" size=5/></td>
+					</tr>
+					<tr>
+						<td colspan=4 style="text-align:right">
 							<input type="submit" value="Realizar Compra"/>
 						</td>
 					</tr>
 				</table>
+			
 			<!-- SI NO SE HA SELECCIONADO NINGUNA PELICULA EN EL CARRITO -->
+			
 			No ha seleccionado ninguna pel&iacute;cula. El carrito est&aacute; vac&iacute;o.
 			
+			<!-- SI SE ACABA DE REALIZAR LA COMPRA -->
+			
+			La compra se ha realizado con &eacute;xito.<br/>
+			<%
+					out.println("<a href=\""+request.getScheme()+"://"+request.getServerName()+":"+
+								request.getServerPort()+request.getContextPath()+"/factura.jsp\" "+
+								"target=\"new\">Ver factura.</a>");
+			%> 
+			<br/>
+			<br/>
+			<%
+					out.println("<input type=\"submit\" value=\"Volver\" "); 
+					out.println("onclick=\"window.location='"+request.getScheme()+"://"+request.getServerName()+":"+
+								request.getServerPort()+request.getContextPath()+"/index.jsp'\"/>");
+			%>
 			</div>
 		</div>
 		</center>

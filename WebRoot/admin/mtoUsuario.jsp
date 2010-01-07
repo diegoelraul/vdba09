@@ -1,0 +1,88 @@
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>FILMS 2010</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	
+	<link rel="stylesheet" type="text/css" href="./css/estilo.css">
+  </head>
+  
+<body>
+		<center>
+		<div id="cuerpo">
+			<%@include file="/inc/menu.jsp"%>
+			
+			<div id="content" style="float:left;">
+			<%@include file="/inc/menuAdm.jsp"%>
+			
+			<form id="mtoPelicula">
+			<!-- si se pasa codigo usuario, CONSULTA, si no se pasa codigo, INSERT -->
+				<table>
+					<tr>
+						<td>Id. Usuario:</td>
+						<td colspan=3><input type="text"/></td>
+					</tr>
+					<tr>
+						<td>Contrase&ntilde;a:</td>
+						<td><input type="text"/></td>
+					</tr>
+					<!-- solo si es CONSULTA -->
+					<tr>
+						<td>Fecha &uacute;ltimo acceso:</td>
+						<td colspan=3><input type="text"/></td>
+					</tr>
+					<tr>
+						<td colspan=2>Compras:</td>
+					</tr>
+					<tr>
+						<td colspan=2>
+							<table>
+								<tr>
+									<td>Pelicula 1</td>
+									<td style="text.align:right;">2,00 euros</td>
+								</tr>
+								<tr>
+									<td>Pelicula 1</td>
+									<td style="text.align:right;">2,00 euros</td>
+								</tr>
+								<tr>
+									<td><b>Total:</b></td>
+									<td style="text.align:right;"><b>4,00 euros</b></td>
+								</tr>
+							</table>
+						</td>
+					</tr>					
+					<!-- solo si es CONSULTA -->
+				</table>
+			
+			</form>
+			
+			
+			</div>
+			<div id="user" style="float:right;">
+			<%
+			if (estaLoggeado()) { %>
+        		Bienvenido,         		
+			<%
+				out.println(obtenerNombreUsuario() + "<br />");
+			} else { %>
+        		<%@include file="/inc/login.jsp"%>
+			<%  } %>
+			</div>
+			
+			
+		</div>
+		</center>
+	</body>
+</html>
