@@ -55,6 +55,10 @@ public abstract class AbstractReparto  implements java.io.Serializable {
     public void setPersonaje(String personaje) {
         this.personaje = personaje;
     }
+    
+    public String toString(){
+    	return (this.getId().getNombre() + " " + this.getId().getNombre() +" -> personaje: " + this.getPersonaje());
+    }
    
 
 

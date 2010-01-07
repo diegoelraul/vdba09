@@ -17,13 +17,13 @@ public abstract class AbstractPelicula  implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 50246923212504610L;
 	private String titulo;
-     private String nombreDirector;
-     private String apellidosDirector;
-     private String idioma;
-     private double coste;
-     private double precio;
-     private Integer disponibilidad;
-     private String pathImagen;
+    private String nombreDirector;
+    private String apellidosDirector;
+    private String idioma;
+    private double coste;
+    private double precio;
+    private Integer disponibilidad;
+    private String pathImagen;
 
 
     // Constructors
@@ -115,7 +115,11 @@ public abstract class AbstractPelicula  implements java.io.Serializable {
     public void setPathImagen(String pathImagen) {
         this.pathImagen = pathImagen;
     }
-   
+    
+    public String toString(){
+    	return ("titulo: " + titulo +";Director: " + nombreDirector + " " + apellidosDirector);
+    }
+    
 
 
 
