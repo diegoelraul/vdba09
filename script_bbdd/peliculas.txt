@@ -1,7 +1,4 @@
 /* Ok, no es lo mas elegante pero incluyo todo en un unico script */
-
-/* Desde la consola de mysql: SOURCE path_fichero */
-
 DROP DATABASE IF EXISTS DATOSPELICULAS;
 
 CREATE DATABASE DatosPeliculas;
@@ -10,8 +7,13 @@ USE DatosPeliculas;
 DROP TABLE IF EXISTS USUARIO;
 CREATE TABLE USUARIO (
 	Id_usuario VARCHAR(40) NOT NULL,
-	Password VARCHAR(40),
-	Fec_acceso DATE,
+	Password VARCHAR(40) NOT NULL,
+	Email VARCHAR(40) NOT NULL,
+	Tipo ENUM('administrador','cliente') NOT NULL,
+	Nombre  VARCHAR(40) NULL,
+	Apellidos VARCHAR(80) NULL,
+	Telefono VARCHAR(20) NULL,
+	Fec_acceso DATE  NOT NULL,
 	CONSTRAINT PK_Usuario
 	PRIMARY KEY(ID_USUARIO)
 ) ENGINE=MyISAM;
@@ -22,10 +24,12 @@ CREATE TABLE PELICULA (
 	Nombre_director VARCHAR(40),
 	Apellidos_director VARCHAR(80),
 	Idioma VARCHAR (40),
-	Coste DOUBLE (9,3),
-	Precio DOUBLE (9,3),
-	Disponibilidad INT,
+	Coste DOUBLE (9,3)  NOT NULL,
+	Precio DOUBLE (9,3)  NOT NULL,
+	Disponibilidad INT  NOT NULL,
 	Path_imagen VARCHAR(80) DEFAULT 'vacio',
+	anyo VARCHAR(4) NULL,
+	SIPNOSIS VARCHAR(500) NULL,
 	CONSTRAINT PK_Pelicula
 	PRIMARY KEY (TITULO)
 ) ENGINE=MyISAM;
@@ -49,9 +53,13 @@ DROP TABLE IF EXISTS COMPRA;
 CREATE TABLE COMPRA (
 	Usuario VARCHAR(40) NOT NULL,
 	Pelicula VARCHAR(40) NOT NULL,
-	fec_compra DATE NOT NULL,
+	Fec_compra DATE NOT NULL,
+	Hora TIME NOT NULL,
+	Direccion VARCHAR(80) NULL,
+	Forma_pago ENUM('tarjeta','tienda') NOT NULL,
+	num_tarjeta VARCHAR(16) NULL,
 	CONSTRAINT PK_Compra
-	PRIMARY KEY (USUARIO, PELICULA, FEC_COMPRA),
+	PRIMARY KEY (USUARIO, PELICULA, FEC_COMPRA, HORA),
 	INDEX (Usuario),
 	FOREIGN KEY (USUARIO)
 		REFERENCES Usuario (ID_USUARIO)
@@ -64,36 +72,41 @@ CREATE TABLE COMPRA (
 
 
 /* inserciones para las pruebas */
-INSERT INTO Usuario VALUES('pepitogrillo37', 'aaaa', '1999-03-22');
-INSERT INTO Usuario VALUES('YagoCampeon', 'aaaabbb', '2009-03-21');
-INSERT INTO Usuario VALUES('ManolitoGafotas', 'sinpass', '2010-01-03');
-INSERT INTO Usuario VALUES('Juanito', 'soytorpe', '2010-01-03');
-INSERT INTO Usuario VALUES('AlvaroQueipo', 'comorrr', '2010-01-03');
-INSERT INTO Usuario VALUES('Eva83', 'tomatesverdes', '2009-12-31');
+INSERT INTO Usuario VALUES('pepitogrillo37','aaaa','email@algo.es','administrador','Guille','solano','913523192','1999-03-22');
+INSERT INTO Usuario VALUES('YagoCampeon','aaaabbb','email@algo.es','cliente','yago','campeon','689557634','2009-03-21');
+INSERT INTO Usuario VALUES('ManolitoGafotas','sinpass','email@algo.es','cliente','manolo','perez','971183058','2010-01-03');
+INSERT INTO Usuario VALUES('Juanito', 'soytorpe','email@algo.es','cliente','juan','apellidos juanito','sin tlf','2010-01-03');
+INSERT INTO Usuario VALUES('AlvaroQueipo', 'comorrr','email@algo.es','cliente','alvaro','queipo','911231234','2010-01-03');
+INSERT INTO Usuario VALUES('Eva83','tomatesverdes','email@algo.es','cliente','eva', 'apellidos de eva', '987123789','2009-12-31');
 
-INSERT INTO Pelicula VALUES('Abajo el Telon', 'Joan', 'Fris y pedastal', 'Swahili', '2.00', '5.95', '10','vacio');
+
+INSERT INTO Pelicula VALUES('Abajo el Telon', 'Joan', 'Fris y pedastal', 'Swahili', '2.00', '5.95', '10','vacio', '1954','Cantinflas, propietario de un negocio de limpieza, limpia las 
+ventanas de la casa de una famosa actriz de cine francesa. Mientras lleva a cabo su labor observa como un hombre roba uno de los famosos collares de la actriz, pero solo puede verlo de 
+espaldas.');
 INSERT INTO Reparto VALUES('Abajo el Telon', 'Mario', 'Moreno', 'Cantiflas');
 INSERT INTO Reparto VALUES('Abajo el Telon', 'Christine', 'Martell', 'Pepa');
 INSERT INTO Reparto VALUES('Abajo el Telon', 'Beatriz', 'Saavedra', 'Secundario');
 
-INSERT INTO Pelicula VALUES('A, B, C... Manhattan', 'Amir', 'Naderi', 'Spanglish', '1.90', '4.95', '28','vacio');
+INSERT INTO Pelicula VALUES('A, B, C... Manhattan', 'Amir', 'Naderi', 'Spanglish', '1.90', '4.95', '28','vacio','1997','La vida de tres mujeres se entrecruza en Manhattan: Collen es madre 
+soltera; Kate esta en Manhattan para olvidar su pasado; y Kacey acaba de perder a su novio, a su mejor amiga y a su perro.');
 INSERT INTO Reparto VALUES('A, B, C... Manhattan', 'Maisy', 'Naderi', 'desconocido');
 INSERT INTO Reparto VALUES('A, B, C... Manhattan', 'Erin', 'Norris', 'mala');
 INSERT INTO Reparto VALUES('A, B, C... Manhattan', 'Sara', 'Paul', 'caballera');
 
-INSERT INTO Pelicula VALUES('Nabonga, el gorila', 'Sam', 'Newfield', 'Frances', '1.90', '4.95', '2','vacio');
+INSERT INTO Pelicula VALUES('Nabonga, el gorila', 'Sam', 'Newfield', 'Frances', '1.90', '4.95', '2','vacio','1944','T.F. Stockwell malversa una valiosa cantidad de dinero y escapa de Egipto 
+en una avioneta con su hija Doreen. Pero la avioneta se estrella en medio de la selva y la pequena se queda sola hasta que conoce a un gorila que la protegera de los peligros de la vida 
+salvaje. Ambos conviven en paz, hasta que un dia dos hombres conocedores de la presencia del dinero aparecen para recuperarlo.');
 INSERT INTO Reparto VALUES('Nabonga, el gorila', 'Julie', 'London', 'Damisela');
 INSERT INTO Reparto VALUES('Nabonga, el gorila', 'Fifi', 'D Orsay', 'Gorila');
 
-INSERT INTO Compra VALUES('pepitogrillo37', 'Nabonga, el gorila', '1999-03-22');
-INSERT INTO Compra VALUES('YagoCampeon', 'Nabonga, el gorila', '2007-01-03');
-INSERT INTO Compra VALUES('Eva83', 'Abajo el Telon', '2007-01-03');
-INSERT INTO Compra VALUES('pepitogrillo37', 'Abajo el Telon', '2007-01-03');
-INSERT INTO Compra VALUES('AlvaroQueipo', 'A, B, C... Manhattan', '2007-05-03');
-INSERT INTO Compra VALUES('AlvaroQueipo', 'Nabonga, el gorila', '2007-05-03');
+INSERT INTO Compra VALUES('pepitogrillo3', 'Nabonga, el gorila', '1999-03-22', '00:23:12','una direccion','tarjeta','1234111123452222');
+INSERT INTO Compra VALUES('YagoCampeon', 'Nabonga, el gorila', '2007-01-03', '00:23:12','una direccion','tarjeta','1234111123452222');
+INSERT INTO Compra VALUES('Eva83', 'Abajo el Telon', '2007-01-03', '00:23:12','una direccion','tarjeta','1234111123452222');
+INSERT INTO Compra VALUES('pepitogrillo37', 'Abajo el Telon', '2007-01-03', '00:23:12','otra direccion','tienda','');
+INSERT INTO Compra VALUES('AlvaroQueipo', 'A, B, C... Manhattan', '2007-05-03', '00:23:12','otra direccion','tienda','');
+INSERT INTO Compra VALUES('AlvaroQueipo', 'Nabonga, el gorila', '2007-05-03', '00:23:12','otra direccion','tienda','');
 
 SELECT * FROM USUARIO;
 SELECT * FROM PELICULA;
 SELECT * FROM REPARTO;
 SELECT * FROM COMPRA;
-  

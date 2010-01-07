@@ -17,14 +17,13 @@ public class CompraId extends AbstractCompraId implements java.io.Serializable {
 
 	// Constructors
 
-    /** default constructor */
-    public CompraId() {
-    }
+	/** default constructor */
+	public CompraId() {
+	}
 
-    
-    /** full constructor */
-    public CompraId(String usuario, String pelicula, Date fecCompra) {
-        super(usuario, pelicula, fecCompra);        
-    }
+	/** full constructor */
+	public CompraId(String usuario, String pelicula, Date fecCompra, Date hora) {
+		super(usuario, pelicula, fecCompra, hora);
+	}
    
 }

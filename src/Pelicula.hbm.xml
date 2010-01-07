@@ -31,5 +31,11 @@
         <property name="pathImagen" type="string">
             <column name="Path_imagen" length="80" />
         </property>
+        <property name="anyo" type="string">
+            <column name="anyo" length="4" />
+        </property>
+        <property name="sipnosis" type="string">
+            <column name="SIPNOSIS" length="500" />
+        </property>
     </class>
 </hibernate-mapping>

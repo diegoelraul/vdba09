@@ -18,28 +18,30 @@ public abstract class AbstractCompra  implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 2659159782761690152L;
 	private CompraId id;
+	private String direccion;
+	private String formaPago;
+	private String numTarjeta;
 
 
     // Constructors
 
-    /** default constructor */
-    public AbstractCompra() {
-    }
+	/** default constructor */
+	public AbstractCompra() {
+	}
 
-    
-    /** full constructor */
-    /*
-    public AbstractCompra(CompraId id) {
-        this.id = id;
-    }
-    */
+	/** minimal constructor */
+	public AbstractCompra(CompraId id, String formaPago) {
+		this.id = id;
+		this.formaPago = formaPago;
+	}
 
-   
-    // Property accessors
-
-    public AbstractCompra(CompraId id2) {
-		// TODO Auto-generated constructor stub
-    	this.id = id2;
+	/** full constructor */
+	public AbstractCompra(CompraId id, String direccion, String formaPago,
+			String numTarjeta) {
+		this.id = id;
+		this.direccion = direccion;
+		this.formaPago = formaPago;
+		this.numTarjeta = numTarjeta;
 	}
 
 
@@ -50,6 +52,30 @@ public abstract class AbstractCompra  implements java.io.Serializable {
     public void setId(CompraId id) {
         this.id = id;
     }
+    
+	public String getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getFormaPago() {
+		return this.formaPago;
+	}
+
+	public void setFormaPago(String formaPago) {
+		this.formaPago = formaPago;
+	}
+
+	public String getNumTarjeta() {
+		return this.numTarjeta;
+	}
+
+	public void setNumTarjeta(String numTarjeta) {
+		this.numTarjeta = numTarjeta;
+	}
    
 
 

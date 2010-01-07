@@ -12,11 +12,12 @@ import modelo.pelicula.*;
 //import modelo.usuario.*;
 //import modelo.reparto.*;
 
+@SuppressWarnings("unused")
 public class Pruebas {
 	
 	public Pruebas(){}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked" })
 	public void testLecturaBD() {
 		
 		try{
@@ -37,16 +38,17 @@ public class Pruebas {
 		/* comienzo transaccion bbdd */
 		session.beginTransaction();
 		/* prueba de salvado. ok */
-		CompraId ci = new CompraId("Eva83", "A, B, C... Manhattan", new Date(2001,11, 03));
-		Compra b = new Compra(ci);
+		//anterior diseño bbdd: 
+		//CompraId ci = new CompraId("Eva83", "A, B, C... Manhattan", new Date(2001,11, 03));
+		//Compra b = new Compra(ci);
 		//cdao.save(b); /* salvar objetos desde session!!! muy importante */
-		session.save(b);
+		//session.save(b);
 		
 		/* más de una transaccion. Metemos una peli */
 		//PeliculaDAO pdao = new PeliculaDAO();
-		Pelicula p = new Pelicula("pruebas", "p", "p", "spanish",1.00, 1.00, 12, "nulo" );
+		//Pelicula p = new Pelicula("pruebas", "p", "p", "spanish",1.00, 1.00, 12, "nulo" );
 		// idem. no funciona. pdao.save(p);
-		session.save(p);
+		//session.save(p);
 		session.getTransaction().commit();
 		// no hace falta. session.close(); aqui
 		

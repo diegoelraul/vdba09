@@ -14,8 +14,20 @@
                 <column name="Pelicula" length="40" />
             </key-property>
             <key-property name="fecCompra" type="date">
-                <column name="fec_compra" length="10" />
+                <column name="Fec_compra" length="10" />
+            </key-property>
+            <key-property name="hora" type="time">
+                <column name="Hora" length="8" />
             </key-property>
         </composite-id>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="80" />
+        </property>
+        <property name="formaPago" type="string">
+            <column name="Forma_pago" length="8" not-null="true" />
+        </property>
+        <property name="numTarjeta" type="string">
+            <column name="num_tarjeta" length="16" />
+        </property>
     </class>
 </hibernate-mapping>

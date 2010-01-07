@@ -11,10 +11,26 @@
             <generator class="assigned"></generator>
         </id>
         <property name="password" type="string">
-            <column name="Password" length="40" />
+            <column name="Password" length="40" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="40" not-null="true" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="Tipo" length="14" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="40" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="Apellidos" length="80" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="20" />
         </property>
         <property name="fecAcceso" type="date">
-            <column name="Fec_acceso" length="10" />
+            <column name="Fec_acceso" length="10" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
+

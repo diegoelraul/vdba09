@@ -1,4 +1,5 @@
 package modelo.compra;
+
 // default package
 
 /**
@@ -15,13 +16,18 @@ public class Compra extends AbstractCompra implements java.io.Serializable {
 
 
 	/** default constructor */
-    public Compra() {
-    }
+	public Compra() {
+	}
 
-    
-    /** full constructor */
-    public Compra(CompraId id) {
-        super(id);        
-    }
+	/** minimal constructor */
+	public Compra(CompraId id, String formaPago) {
+		super(id, formaPago);
+	}
+
+	/** full constructor */
+	public Compra(CompraId id, String direccion, String formaPago,
+			String numTarjeta) {
+		super(id, direccion, formaPago, numTarjeta);
+	}
    
 }
