@@ -23,11 +23,12 @@ h2 {
 	color: #333333 
 }
 /*MENU*/
+/* no se usa
 .logomenu{
 	background-image: url('../images/logo.gif');
 	background-repeat: no-repeat;
 	width:50px;
-	}
+	}*/
 .menu {
 	font: bold 11pt Verdana, Arial, sans-serif;
 	background-image: url('../images/menu.gif');
@@ -47,7 +48,34 @@ h2 {
 	color:#cccccc;
 	text-decoration:none;
 	}
-
+.menuLateral{
+	background-image:url('../images/cabecera.gif');
+	color:#ffffff;
+	height:30px;
+	font-weight:bold;
+	vertical-align:middle;
+	padding-left:20px;
+}
+.subMenuLateral{
+	background-color:#dddddd;
+	color:#000000;
+	font-weight:bold;
+	vertical-align:middle;
+	height:25px;
+	padding-left:40px;
+}
+.subMenuLateral a{
+	color:#000000;
+	font: 10pt Verdana, Arial, sans-serif;
+	text-decoration:none;
+	}
+.subMenuLateral a:hover{
+	color:#666666;
+	text-decoration:none;
+	}
+#menuAdm{
+	margin-right:20px;
+	}
 
 /*BLOQUE*/
 .bloqueLT{
@@ -109,7 +137,7 @@ h2 {
 	margin-right: 15%;
 	margin-left: 15%;
 	width:70%;
-	height:500px;
+	height:100%;/*600px;*/
 	text-align:left;
 }
 
@@ -122,9 +150,16 @@ h2 {
 	font-weight:bold;
 	vertical-align:middle;
 }
-.fondo{
+.subCabecera{
+	background-color:#dddddd;
+	color:#000000;
+	height:30px;
+	font-weight:bold;
+	vertical-align:middle;
+}.fondo{
+	font: 10pt Verdana, Arial, sans-serif;
 	background-color:#eeeeee;
 	border-bottom-style:solid;
 	border-bottom-width:1px;
-	border-bottom-color:#999999;
+	border-bottom-color:#cccccc;
 	}

@@ -5,7 +5,7 @@
 	private boolean estaLoggeado() {
 		//return (usuario != null);
 		//EMHA - PARA PRUEBAS!! 
-		return false;
+		return true;
 	}
 	
 	private boolean esAdministrador() {
@@ -49,7 +49,7 @@
   <div style="clear:both;">
     <table cellspacing=0 cellpadding=0 width="100%">
       <tr>
-        <td class="menu" width="50px">&nbsp;</td>
+        <td class="menu" width="20px">&nbsp;</td>
         <td class="menu"  width="100px">
         	<a href="./index.jsp">Home</a>
         </td>
@@ -58,7 +58,7 @@
 			if (estaLoggeado()) { 
 			%>
         		<td class="menu" width="150px">
-        			<a href="./compras.jsp">Mis compras</a>
+        			<a href="./privado/compras.jsp">Mis compras</a>
         		</td>
         	<%
         	}

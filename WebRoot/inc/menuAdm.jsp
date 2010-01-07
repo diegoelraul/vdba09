@@ -1,46 +1,56 @@
 <br/>
   <div style="clear:both;">
-    <table cellspacing=0 cellpadding=0 width="10%">
+    <table cellspacing=0 cellpadding=0>
       <tr>
-   		<td class="menuLateral" width="150px">
-     		Peliculas
+   		<td class="menuLateral">
+     		Pel&iacute;culas
+        </td>
+        <td>
+        	<img src="./images/cabfin.gif"/>
         </td>
       </tr>
       <tr>
-        <td class="subMenuLateral"  width="100px">
-        	<a href="./admin/mtoPelicula.jsp">Nueva Pelicula</a>
+        <td class="subMenuLateral">
+        	<a href="./admin/mtoPelicula.jsp">Nueva Pel&iacute;cula</a>
         </td>
       </tr>
       <tr>
-   		<td class="subMenuLateral" width="150px">
+   		<td class="subMenuLateral">
      		<a href="./admin/peliculas.jsp">Listado</a>
         </td>
       </tr>  
       <tr>
-   		<td class="menuLateral" width="150px">
+   		<td class="menuLateral">
      		Usuarios
+        </td>
+        <td>
+        	<img src="./images/cabfin.gif"/>
         </td>
       </tr>
       <tr>
-   		<td class="subMenuLateral" width="150px">
+   		<td class="subMenuLateral">
      		<a href="./admin/mtoUsuario.jsp">Nuevo Usuario</a>
         </td>
       </tr>
       <tr>
-   		<td class="subMenuLateral" width="150px">
+   		<td class="subMenuLateral">
      		<a href="./admin/usuarios.jsp">Listado</a>
         </td>
       </tr>
       <tr>
-        <td class="menuLateral" width="150px">
+        <td class="menuLateral">
         	Actividad
         </td> 
-	  </tr><tr>
-   		<td class="subMenuLateral" width="150px">
+        <td>
+        	<img src="./images/cabfin.gif"/>
+        </td>
+	  </tr>
+	  <tr>
+   		<td class="subMenuLateral">
      		<a href="./admin/ventas.jsp">Consultar Ventas</a>
         </td>
       </tr><tr>
-   		<td class="subMenuLateral" width="150px">
+   		<td class="subMenuLateral">
      		<a href="./admin/ganancias.jsp">Consultar Ganancias</a>
         </td>
       </tr>

@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<b>Reparto: </b>#REPARTO#<br/>
 				<b>Sipnosis: </b> #SIPNOSIS#<br/> 
 				<p align="right">
-				<b>Disponibilidad: </b>#DISPONIBILIDAD#<br/>
+				<b>Disponibilidad: </b>#DISPONIBILIDAD# unidades<br/>
 				</p>
 				<!-- Si usuario logueado -->
 				<p align="right">
