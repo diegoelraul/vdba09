@@ -41,7 +41,7 @@ public class CuentaValidationFilter implements Filter{
 		String string_num_cuenta = req.getParameter(PARAM_NUM_CUENTA);
 		
 		try {
-			Integer.parseInt( (string_num_cuenta=string_num_cuenta.trim().replaceAll("-", "").replaceAll("-", "")) );
+			Integer.parseInt( (string_num_cuenta=string_num_cuenta.trim().replaceAll(" ", "").replaceAll("-", "")) );
 			//.replaceAll("\\s-", ""); no lo he probado. en teoria esto quitaria todo
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
