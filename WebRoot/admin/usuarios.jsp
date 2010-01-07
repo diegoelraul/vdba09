@@ -23,36 +23,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="cuerpo">
 			<%@include file="/inc/menu.jsp"%>
 			
-			<div id="content" style="float:left;">
-			<%@include file="/inc/menuAdm.jsp"%>
-			
-			<form id="usuarios">
-				<table>
-					<tr>
-						<td>Id. Usuario</td>
-						<td><input type="text"/></td>
-					</tr>
-					<tr>
-						<td>Usuario 1</td>
-						<td><a href=""><img src="./images/view.png" border=0/></a></td>
-						<td><a href=""><img src="./images/delete.png" border=0/></a></td>
-					</tr>
-					<tr>
-						<td>Usuario 2</td>
-						<td><a href=""><img src="./images/view.png" border=0/></a></td>
-						<td><a href=""><img src="./images/delete.png" border=0/></a></td>
-					</tr>
-					<tr>
-						<td>Usuario 3</td>
-						<td><a href=""><img src="./images/view.png" border=0/></a></td>
-						<td><a href=""><img src="./images/delete.png" border=0/></a></td>
-					</tr>					
-				</table>
-			
-			</form>
-			
-			
+			<div id="menuAdm" style="float:left;">
+				<%@include file="/inc/menuAdm.jsp"%>
 			</div>
+			
 			<div id="user" style="float:right;">
 			<%
 			if (estaLoggeado()) { %>
@@ -64,6 +38,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<%  } %>
 			</div>
 			
+			<div id="content" style="float:left;">
+			<br/>
+			<form id="usuarios">
+				<table cellspacing=0 class="fondo">
+					<tr>
+						<td class="cabecera">Id. Usuario</td>
+						<td class="cabecera" width="30px"></td>
+						<td class="cabecera">Visualizar</td>
+						<td class="cabecera">Eliminar</td>
+					</tr>
+					<tr>
+						<td class="fondo">Usuario 1</td>
+						<td class="fondo"></td>
+						<td class="fondo"><a href=""><img src="./images/view.png" border=0/></a></td>
+						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+					</tr>
+					<tr>
+						<td class="fondo">Usuario 2</td>
+						<td class="fondo"></td>
+						<td class="fondo"><a href=""><img src="./images/view.png" border=0/></a></td>
+						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+					</tr>
+					<tr>
+						<td class="fondo">Usuario 3</td>
+						<td class="fondo"></td>
+						<td class="fondo"><a href=""><img src="./images/view.png" border=0/></a></td>
+						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+					</tr>					
+				</table>
+			
+			</form>
+			
+			</div>
 			
 		</div>
 		</center>

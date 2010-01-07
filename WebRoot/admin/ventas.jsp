@@ -23,9 +23,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="cuerpo">
 			<%@include file="/inc/menu.jsp"%>
 			
-			<div id="content" style="float:left;">
-			<%@include file="/inc/menuAdm.jsp"%>
+			<div id="menuAdm" style="float:left;">
+				<%@include file="/inc/menuAdm.jsp"%>
+			</div>
 			
+			<div id="user" style="float:right;">
+			<%
+			if (estaLoggeado()) { %>
+        		Bienvenido,         		
+			<%
+				out.println(obtenerNombreUsuario() + "<br />");
+			} else { %>
+        		<%@include file="/inc/login.jsp"%>
+			<%  } %>
+			</div>
+			
+			<div id="content" style="float:left;">
+			<br/>
 			<form id="usuarios">
 				<table>
 					<tr>
@@ -81,16 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 			</div>
-			<div id="user" style="float:right;">
-			<%
-			if (estaLoggeado()) { %>
-        		Bienvenido,         		
-			<%
-				out.println(obtenerNombreUsuario() + "<br />");
-			} else { %>
-        		<%@include file="/inc/login.jsp"%>
-			<%  } %>
-			</div>
+		
 			<div id="config" style="float:right;">
        			<%@include file="/inc/configVentas.jsp"%>
 			</div>

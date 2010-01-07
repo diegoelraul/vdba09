@@ -23,42 +23,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="cuerpo">
 			<%@include file="/inc/menu.jsp"%>
 			
-			<div id="content" style="float:left;">
-			<%@include file="/inc/menuAdm.jsp"%>
-			
-			<form id="peliculas">
-				<table>
-					<tr>
-						<td>T&iacute;tulo</td>
-						<td><input type="text"/></td>
-					</tr>
-					<tr>
-						<td>Pelicula 1</td>
-						<td><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td><a href=""><img src="./images/delete.png" border=0/></a></td>
-					</tr>
-					<tr>
-						<td>Pelicula 2</td>
-						<td><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td><a href=""><img src="./images/delete.png" border=0/></a></td>
-					</tr>
-					<tr>
-						<td>Pelicula 3</td>
-						<td><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td><a href=""><img src="./images/delete.png" border=0/></a></td>
-					</tr>
-					<tr>
-						<td>Pelicula 4</td>
-						<td><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td><a href=""><img src="./images/delete.png" border=0/></a></td>
-					</tr>									
-					
-				</table>
-			
-			</form>
-			
-			
+			<div id="menuAdm" style="float:left;">
+				<%@include file="/inc/menuAdm.jsp"%>
 			</div>
+			
 			<div id="user" style="float:right;">
 			<%
 			if (estaLoggeado()) { %>
@@ -68,6 +36,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			} else { %>
         		<%@include file="/inc/login.jsp"%>
 			<%  } %>
+			</div>
+			
+			<div id="content" style="float:left;">
+			<br/>
+			<form id="peliculas">
+				<table cellspacing=0>
+					<tr class="fondo">
+						<td class="cabecera">T&iacute;tulo</td>
+						<td class="cabecera" width="30px"></td>
+						<td class="cabecera">Editar</td>
+						<td class="cabecera">Eliminar</td>
+					</tr>
+					<tr>
+						<td class="fondo">Pelicula 1</td>
+						<td class="fondo">&nbsp;</td>
+						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+					</tr>
+					<tr>
+						<td class="fondo">Pelicula 2</td>
+						<td class="fondo">&nbsp;</td>
+						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+					</tr>
+					<tr>
+						<td class="fondo">Pelicula 3</td>
+						<td class="fondo">&nbsp;</td>
+						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+					</tr>
+					<tr>
+						<td class="fondo">Pelicula 4</td>
+						<td class="fondo">&nbsp;</td>
+						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+					</tr>									
+					
+				</table>
+			
+			</form>
+			
+			
 			</div>
 			
 			
