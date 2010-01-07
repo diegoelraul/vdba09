@@ -17,36 +17,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<link rel="stylesheet" type="text/css" href="./css/estilo.css">
   </head>
-  
 <body>
 		<center>
 		<div id="cuerpo">
 		<%@include file="/inc/menu.jsp"%>
 		
 			<div id="content" style="float:left;">
-			
+			<br/>
 			<!-- SI NO HAY PELICULA SELECCIONADA -->
-				<h2>
-					Listado de pel&iacute;culas
-				</h2>
-				<p id="listado">
-				<a href="">Pelicula 1</a><br/>
-				<a href="">Pelicula 2</a><br/>
-				<a href="">Pelicula 3</a><br/>
-				<a href="">Pelicula 4</a><br/>
-				</p>
+				<table class="fondo" cellspacing="0" cellpadding="0" width="550px">
+					<tr class="cabecera">
+						<td style="text-align:center" valign="middle">
+							Listado de pel&iacute;culas
+						</td>
+					</tr>
+					<tr>
+						<td  style="text-align:left">
+							<ul id="listado" type="circle">
+								<li><a href="">Pelicula 1 con un nombre largo super largo pero que muy muy largo</a></li>
+								<li><a href="">Pelicula 2</a></li>
+								<li><a href="">Pelicula 3</a></li>
+								<li><a href="">Pelicula 4</a></li>
+							</ul>
+						</td>
+					</tr>
+					
+					</table>
 			
 			<!-- SI HAY PELICULA SELECCIONADA -->	
-				<h2>
+				<div class="fondo">
+				<h2 class="cabecera">
 					#TITULO#
 				</h2>
-				<div style="float:left; margin-right:10px;">
+				<div style="float:left; margin-right:10px;" >
 				<img src="./images/cinta3.jpg" border=1 width="100px"/>
 				</div>
 				<b>Director: </b>#NOM_DIRECTOR# #APELLIDOS_DIRECTOR#<br/>
-				<b>Idioma: </b>#IDIOMA#<br/>
-				<b>Precio: </b>#PRECIO# euros<br/>
+				<b>Idioma: </b>#IDIOMA# <b>Año: </b>#AÑO#<br/>
+				<b>Precio: </b>#PRECIO# &euro;<br/>
+				<b>Reparto: </b>#REPARTO#<br/>
+				<b>Sipnosis: </b> #SIPNOSIS#<br/> 
+				<p align="right">
 				<b>Disponibilidad: </b>#DISPONIBILIDAD#<br/>
+				</p>
 				<!-- Si usuario logueado -->
 				<p align="right">
 					<input type="submit" value="Comprar"/>
@@ -56,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								request.getServerPort()+request.getContextPath()+"/index.jsp'\"/>");
 					%>					 
 				</p>
-				
+				</div>
 			</div>
 			<div id="user" style="float:right;">
 			<%
