@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="listaUsuariosForm" type="hibernate.struts.form.ListaUsuariosForm" />
+    <form-bean name="editarUsuarioForm" type="hibernate.struts.form.EditarUsuarioForm" />
+    <form-bean name="listaPeliculasForm" type="hibernate.struts.form.ListaPeliculasForm" />
+    <form-bean name="editarPeliculaForm" type="hibernate.struts.form.EditarPeliculaForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards >
+    <forward
+      name="welcomeAdm"
+      path="/administrador.do"
+      redirect="true" />
+    
+
+  </global-forwards>
+
+  <action-mappings >
+    <action forward="/jsp/administrador.jsp" path="/administrador" />
+    <action
+      attribute="listaUsuariosForm"
+      input="/jsp/listaUsuarios.jsp"
+      name="listaUsuariosForm"
+      path="/listaUsuarios"
+      scope="request"
+      type="hibernate.struts.action.ListaUsuariosAction" >
+      <forward name="showlist" path="/jsp/listaUsuarios.jsp" />
+    </action>
+    <action
+      attribute="editarUsuarioForm"
+      name="editarUsuarioForm"
+      parameter="do"
+      path="/editarUsuario"
+      scope="request"
+      type="hibernate.struts.action.EditarUsuarioAction">
+      <forward name="eliminarUsuario" path="/jsp/eliminarUsuario.jsp" />
+      <forward name="verUsuario" path="/jsp/verUsuario.jsp" />
+      
+      <forward
+        name="elimUsuarioConf"
+        path="listaUsuarios.do"
+        redirect="true" />
+      <forward name="nuevoUsuario" path="/jsp/nuevoUsuario.jsp" />
+      <forward
+      name="nuevoUsuarioSave"
+      path="listaUsuarios.do"
+      redirect="true" />
+    </action>
+    <action
+      attribute="editarPeliculaForm"
+      name="editarPeliculaForm"
+      parameter="do"
+      path="/editarPelicula"
+      scope="request"
+      type="hibernate.struts.action.EditarPeliculaAction">
+      <forward name="elimPeliculaConf" path="/listaPeliculas.do" />
+      <forward name="verPelicula" path="/jsp/verPelicula.jsp" />
+      <forward name="modifPelicula" path="/jsp/modifPelicula.jsp" />
+      <forward name="eliminarPelicula" path="/jsp/eliminarPelicula.jsp" />
+      <forward name="nuevaPelicula" path="/jsp/nuevaPelicula.jsp" />
+      <forward
+      name="nuevaPeliculaSave"
+      path="listaPeliculas.do"
+      redirect="true" />
+      <forward
+        name="modifPeliculaSave"
+        path="/listaPeliculas.do"
+        redirect="true" />
+      <forward
+        name="elimReparto"
+        path="listaPeliculas.do"
+        redirect="true" />
+    </action>
+    <action
+      attribute="listaPeliculasForm"
+      input="/jsp/listaPeliculas.jsp"
+      name="listaPeliculasForm"
+      path="/listaPeliculas"
+      scope="request"
+      type="hibernate.struts.action.ListaPeliculasAction" >
+      <forward name="showlist" path="/jsp/listaPeliculas.jsp" />
+    </action>
+    
+
+  </action-mappings>
+
+  <message-resources parameter="hibernate.struts.ApplicationResources" />
+</struts-config>
+

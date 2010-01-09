@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/administrador.do" location="50,50" dimension="108,62" />
+  <StrutsActivity path="/listaUsuarios.do" location="650,50" dimension="247,88" />
+  <StrutsActivity path="/editarUsuario.do" location="50,250" dimension="248,88" />
+  <StrutsActivity path="/editarPelicula.do" location="50,550" dimension="247,88" />
+  <StrutsActivity path="/listaPeliculas.do" location="950,350" dimension="246,88" />
+  <StrutsActivity path="welcomeAdm;6" location="950,50" dimension="124,75" />
+  <StrutsActivity path="/jsp/administrador.jsp" location="350,50" dimension="134,49" />
+  <StrutsActivity path="/jsp/listaUsuarios.jsp" location="350,150" dimension="129,49" />
+  <StrutsActivity path="/jsp/eliminarUsuario.jsp" location="350,250" dimension="141,49" />
+  <StrutsActivity path="listaUsuarios.do" location="350,350" dimension="115,75" />
+  <StrutsActivity path="/jsp/nuevoUsuario.jsp" location="950,250" dimension="135,49" />
+  <StrutsActivity path="/jsp/verUsuario.jsp" location="650,350" dimension="121,49" />
+  <StrutsActivity path="/jsp/verPelicula.jsp" location="350,650" dimension="120,49" />
+  <StrutsActivity path="/jsp/modifPelicula.jsp" location="350,550" dimension="130,49" />
+  <StrutsActivity path="/jsp/eliminarPelicula.jsp" location="650,550" dimension="140,49" />
+  <StrutsActivity path="/jsp/listaPeliculas.jsp" location="50,450" dimension="128,49" />
+  <StrutsActivity path="/jsp/modificarUsuario.jsp" location="650,250" dimension="148,49" />
+  <StrutsActivity path="/jsp/listaUsuarios" location="650,450" dimension="111,49" />
+  <StrutsActivity path="/jsp/nuevaPelicula.jsp" location="650,650" dimension="134,49" />
+  <StrutsActivity path="listaPeliculas.do" location="950,550" dimension="114,75" />
+  <StrutsTransition id="/editarPelicula.do,elimReparto,listaPeliculas.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="173,594" />
+      <AbsolutePoint location="1007,587" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,modifPeliculaSave,/listaPeliculas.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="204,638" />
+      <AbsolutePoint location="204,983" />
+      <AbsolutePoint location="1133,983" />
+      <AbsolutePoint location="1133,438" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,elimPeliculaConf,listaPeliculas.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="173,638" />
+      <AbsolutePoint location="173,713" />
+      <AbsolutePoint location="1007,713" />
+      <AbsolutePoint location="1007,625" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarUsuario.do,eliminarUsuario,/jsp/eliminarUsuario.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="298,284" />
+      <AbsolutePoint location="350,284" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/listaPeliculas.jsp,null,/listaPeliculas.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="144,499" />
+      <AbsolutePoint location="144,514" />
+      <AbsolutePoint location="1073,514" />
+      <AbsolutePoint location="1073,438" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listaUsuarios.do,showlist,/jsp/listaUsuarios.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="743,138" />
+      <AbsolutePoint location="743,174" />
+      <AbsolutePoint location="479,174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/administrador.do,null,/jsp/administrador.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="158,81" />
+      <AbsolutePoint location="350,81" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarUsuario.do,verUsuario,/jsp/verUsuario.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="298,314" />
+      <AbsolutePoint location="710,314" />
+      <AbsolutePoint location="710,350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="welcomeAdm;6,null,/administrador.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1012,50" />
+      <AbsolutePoint location="1012,-25" />
+      <AbsolutePoint location="104,-25" />
+      <AbsolutePoint location="104,50" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,modifPelicula,/jsp/modifPelicula.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="297,584" />
+      <AbsolutePoint location="350,584" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listaPeliculas.do,showlist,/jsp/listaPeliculas.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,417" />
+      <AbsolutePoint location="566,417" />
+      <AbsolutePoint location="566,474" />
+      <AbsolutePoint location="178,474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,eliminarPelicula,/jsp/eliminarPelicula.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="297,614" />
+      <AbsolutePoint location="720,614" />
+      <AbsolutePoint location="720,599" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,elimPeliculaConf,/listaPeliculas.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="174,638" />
+      <AbsolutePoint location="174,893" />
+      <AbsolutePoint location="1103,893" />
+      <AbsolutePoint location="1103,438" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarUsuario.do,nuevoUsuarioSave,listaUsuarios.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="174,338" />
+      <AbsolutePoint location="174,357" />
+      <AbsolutePoint location="350,357" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarUsuario.do,elimUsuarioConf,listaUsuarios.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="144,338" />
+      <AbsolutePoint location="144,387" />
+      <AbsolutePoint location="350,387" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,elimPelicula,/jsp/eliminarPelicula.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="297,614" />
+      <AbsolutePoint location="720,614" />
+      <AbsolutePoint location="720,599" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarUsuario.do,nuevoUsuario,/jsp/nuevoUsuario.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="174,250" />
+      <AbsolutePoint location="174,214" />
+      <AbsolutePoint location="1017,214" />
+      <AbsolutePoint location="1017,250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,verPelicula,/jsp/verPelicula.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="174,638" />
+      <AbsolutePoint location="174,674" />
+      <AbsolutePoint location="350,674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,nuevaPelicula,/jsp/nuevaPelicula.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="113,638" />
+      <AbsolutePoint location="113,803" />
+      <AbsolutePoint location="717,803" />
+      <AbsolutePoint location="717,699" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editarPelicula.do,nuevaPeliculaSave,listaPeliculas.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="143,638" />
+      <AbsolutePoint location="143,744" />
+      <AbsolutePoint location="1007,744" />
+      <AbsolutePoint location="1007,625" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/listaUsuarios.jsp,null,/listaUsuarios.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="414,150" />
+      <AbsolutePoint location="414,127" />
+      <AbsolutePoint location="650,127" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+
