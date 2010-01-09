@@ -23,47 +23,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="cuerpo">
 			<%@include file="/inc/menu.jsp"%>
 			
-			<div id="content" style="float:left;">
-			<%@include file="/inc/menuAdm.jsp"%>
-			
-			<form id="usuarios">
-				<table>
-					<tr>
-						<td>Pelicula</td>
-						<td>Precio (euros)</td>
-						<td>Unidades</td>
-						<td>Total (euros)</td>
-					</tr>
-					<tr>
-						<td>Pelicula 1</td>
-						<td>2,00</td>
-						<td>3</td>
-						<td>6,00</td>
-					</tr>
-					<tr>
-						<td>Pelicula 3</td>
-						<td>2,00</td>
-						<td>2</td>
-						<td>4,00</td>
-					</tr>
-					<tr>
-						<td>Pelicula 4</td>
-						<td>2,00</td>
-						<td>3</td>
-						<td>6,00</td>
-					</tr>
-					<tr>
-						<td><b>Total</b></td>
-						<td></td>
-						<td><b>8</b></td>
-						<td><b>16,00</b></td>
-					</tr>
-				</table>
-			
-			</form>
-			
-			
+			<div id="menuAdm" style="float:left;">
+				<%@include file="/inc/menuAdm.jsp"%>
 			</div>
+			
 			<div id="user" style="float:right;">
 			<%
 			if (estaLoggeado()) { %>
@@ -74,8 +37,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<%@include file="/inc/login.jsp"%>
 			<%  } %>
 			</div>
-       		<div id="config" style="float:right;">
-       			<%@include file="/inc/configGanancias.jsp"%>
+			
+			<div id="content" style="float:left;">
+			<br/>
+			<form id="usuarios">
+				<table class="fondo" cellspacing=0 width="620px">
+					<tr class="cabecera">
+						<td colspan=4>Ganancias</td>
+					</tr>
+					<tr class="subCabecera">
+						<td>Pelicula</td>
+						<td>Precio (&euro;)</td>
+						<td>Unidades</td>
+						<td>Total (&euro;)</td>
+					</tr>
+					<tr>
+						<td class="fondo" >Pelicula 1</td>
+						<td class="fondo" >2,00</td>
+						<td class="fondo" >3</td>
+						<td class="fondo" >6,00</td>
+					</tr>
+					<tr>
+						<td class="fondo" >Pelicula 3</td>
+						<td class="fondo">2,00</td>
+						<td class="fondo" >2</td>
+						<td class="fondo" >4,00</td>
+					</tr>
+					<tr>
+						<td class="fondo" >Pelicula 4</td>
+						<td class="fondo" >2,00</td>
+						<td class="fondo" >3</td>
+						<td class="fondo" >6,00</td>
+					</tr>
+					<tr>
+						<td class="fondo" ><b>Total</b></td>
+						<td class="fondo" >&nbsp;</td>
+						<td class="fondo" ><b>8</b></td>
+						<td class="fondo" ><b>16,00</b></td>
+					</tr>
+				</table>
+			
+			</form>
+			
+			
 			</div>
 			
 			

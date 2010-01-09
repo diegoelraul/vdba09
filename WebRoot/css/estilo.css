@@ -76,6 +76,14 @@ h2 {
 #menuAdm{
 	margin-right:20px;
 	}
+.subCabeceraMenu{
+	background-color:#bbbbbb;
+	color:#ffffff;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+}
+
 
 /*BLOQUE*/
 .bloqueLT{
@@ -140,6 +148,16 @@ h2 {
 	height:100%;/*600px;*/
 	text-align:left;
 }
+#fondoCuerpo{
+	background-color:#ffffff;
+	margin-right: 15%;
+	margin-left: 15%;
+	width:70%;
+	height:100%;/*600px;*/
+	text-align:left;	background-image:url('../images/cinta0 copia.jpg');
+	background-repeat:no-repeat;
+	background-position:right bottom;
+}
 
 /*TABLAS*/
 .cabecera{
@@ -149,14 +167,16 @@ h2 {
 	height:30px;
 	font-weight:bold;
 	vertical-align:middle;
+	text-align:center;
 }
 .subCabecera{
-	background-color:#dddddd;
+	background-color:#cccccc;
 	color:#000000;
 	height:30px;
 	font-weight:bold;
 	vertical-align:middle;
-}.fondo{
+}
+.fondo{
 	font: 10pt Verdana, Arial, sans-serif;
 	background-color:#eeeeee;
 	border-bottom-style:solid;

@@ -75,7 +75,7 @@
         	}
         %>
 
-        <td class="menu" width="auto"></td>
+        <td class="menu" width="auto" style="text-align:right;"><a href="./about.jsp">About Us</a></td>
       </tr>
     </table>
   </div>

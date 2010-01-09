@@ -41,49 +41,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="content" style="float:left;">
 			<br/>
 			<form id="usuarios">
-				<table>
-					<tr>
-						<td>Fecha de la compra</td>
-						<td>Importe Total (euros)</td>
-						<td>Id. Usuario</td>
-						<td>Listado Peliculas</td>
+				<table class="fondo" cellspacing=0 width="620px">
+					<tr class="cabecera">
+						<td colspan=4>Ventas</td>
+					</tr>
+					<tr class="subCabecera">
+						<td class="subCabecera" >Fecha de la compra</td>
+						<td class="subCabecera" >Importe Total (euros)</td>
+						<td class="subCabecera" >Id. Usuario</td>
+						<td class="subCabecera" >Listado Peliculas</td>
 					</tr>
 					<tr>
-						<td>dd/mm/aaaa</td>
-						<td>3,00</td>
-						<td>Usuario 1</td>
-						<td><p id="listado">
+						<td class="fondo" >dd/mm/aaaa</td>
+						<td class="fondo" >3,00</td>
+						<td class="fondo" >Usuario 1</td>
+						<td class="fondo" ><p id="listado">
 							Pelicula 1<br/>
 							Pelicula 4<br/>
 							</p>
 						</td>
 					</tr>
 					<tr>
-						<td>dd/mm/aaaa</td>
-						<td>3,00</td>
-						<td>Usuario 1</td>
-						<td><p id="listado">
+						<td class="fondo" >dd/mm/aaaa</td>
+						<td class="fondo" >3,00</td>
+						<td class="fondo" >Usuario 1</td>
+						<td class="fondo" ><p id="listado">
 							Pelicula 1<br/>
 							Pelicula 4<br/>
 							</p>
 						</td>
 					</tr>
 					<tr>
-						<td>dd/mm/aaaa</td>
-						<td>3,00</td>
-						<td>Usuario 1</td>
-						<td><p id="listado">
+						<td class="fondo" >dd/mm/aaaa</td>
+						<td class="fondo" >3,00</td>
+						<td class="fondo" >Usuario 1</td>
+						<td class="fondo" ><p id="listado">
 							Pelicula 1<br/>
 							Pelicula 4<br/>
 							</p>
 						</td>
 					</tr>
 					<tr>
-						<td colspan=4><b>Total</b></td>
+						<td  class="fondo" colspan=4><b>Total</b></td>
 					</tr>
 					<tr>
-						<td>N compras</td>
-						<td>6,00</td>
+						<td>#N# compras</td>
+						<td>9,00</td>
 						<td></td>
 						<td>
 						</td>
@@ -96,9 +99,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			</div>
 		
-			<div id="config" style="float:right;">
-       			<%@include file="/inc/configVentas.jsp"%>
-			</div>
        	
 			
 			

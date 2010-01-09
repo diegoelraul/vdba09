@@ -41,28 +41,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="content" style="float:left;">
 			<br/>
 			<form id="usuarios">
-				<table cellspacing=0 class="fondo">
-					<tr>
-						<td class="cabecera">Id. Usuario</td>
-						<td class="cabecera" width="30px"></td>
-						<td class="cabecera">Visualizar</td>
-						<td class="cabecera">Eliminar</td>
+				<table cellspacing=0 class="fondo" width="620px">
+					<tr class="cabecera">
+						<td colspan=4>Usuarios</td>
+					</tr>
+					<tr class="subCabecera">
+						<td>Id. Usuario</td>
+						<td width="30px"></td>
+						<td>Visualizar</td>
+						<td>Eliminar</td>
 					</tr>
 					<tr>
 						<td class="fondo">Usuario 1</td>
-						<td class="fondo"></td>
+						<td class="fondo">&nbsp;</td>
 						<td class="fondo"><a href=""><img src="./images/view.png" border=0/></a></td>
 						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
 					</tr>
 					<tr>
 						<td class="fondo">Usuario 2</td>
-						<td class="fondo"></td>
+						<td class="fondo">&nbsp;</td>
 						<td class="fondo"><a href=""><img src="./images/view.png" border=0/></a></td>
 						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
 					</tr>
 					<tr>
 						<td class="fondo">Usuario 3</td>
-						<td class="fondo"></td>
+						<td class="fondo">&nbsp;</td>
 						<td class="fondo"><a href=""><img src="./images/view.png" border=0/></a></td>
 						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
 					</tr>					

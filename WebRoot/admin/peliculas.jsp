@@ -41,36 +41,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="content" style="float:left;">
 			<br/>
 			<form id="peliculas">
-				<table cellspacing=0>
-					<tr class="fondo">
-						<td class="cabecera">T&iacute;tulo</td>
-						<td class="cabecera" width="30px"></td>
-						<td class="cabecera">Editar</td>
-						<td class="cabecera">Eliminar</td>
+				<table cellspacing=0  width="620px">
+					<tr class="cabecera">
+						<td colspan=4>Peliculas</td>
+					</tr>
+					<tr class="subCabecera">
+						<td>T&iacute;tulo</td>
+						<td width="30px"></td>
+						<td width="60px" style="text-aling:center;">Editar</td>
+						<td width="60px" style="text-aling:center;">Eliminar</td>
 					</tr>
 					<tr>
 						<td class="fondo">Pelicula 1</td>
 						<td class="fondo">&nbsp;</td>
-						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/delete.png" border=0/></a></td>
 					</tr>
 					<tr>
 						<td class="fondo">Pelicula 2</td>
 						<td class="fondo">&nbsp;</td>
-						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/delete.png" border=0/></a></td>
 					</tr>
 					<tr>
 						<td class="fondo">Pelicula 3</td>
 						<td class="fondo">&nbsp;</td>
-						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/delete.png" border=0/></a></td>
 					</tr>
 					<tr>
 						<td class="fondo">Pelicula 4</td>
 						<td class="fondo">&nbsp;</td>
-						<td class="fondo"><a href=""><img src="./images/edit.png" border=0/></a></td>
-						<td class="fondo"><a href=""><img src="./images/delete.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/edit.png" border=0/></a></td>
+						<td class="fondo" style="text-aling:center;"><a href=""><img src="./images/delete.png" border=0/></a></td>
 					</tr>									
 					
 				</table>

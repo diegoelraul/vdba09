@@ -20,11 +20,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
 <body>
 		<center>
-		<div id="cuerpo">
+		<div id="fondocuerpo">
 			<%@include file="/inc/menu.jsp"%>
 			
+			<div id="menuAdm" style="float:left;">
+				<%@include file="/inc/menuAdm.jsp"%>
+			</div>
+			
 			<div id="content" style="float:left;">
-			<%@include file="/inc/menuAdm.jsp"%>
 			
 			</div>
 			<div id="user" style="float:right;">

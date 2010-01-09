@@ -29,5 +29,5 @@ Dentro de web.xml tenemos:
 
 de todos modos miralo en aula global, tema 2. Como hay varios filtros hay que encadenarlos según la página a la que afecta.
 Va muy bien el ear con el ejemplo ServletFiltros
+-->
 
->

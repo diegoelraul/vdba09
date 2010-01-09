@@ -46,6 +46,25 @@
         </td>
 	  </tr>
 	  <tr>
+   		<td class="subMenuLateral, subCabeceraMenu">
+     		Hoy
+        </td>
+      </tr>
+      <tr>
+   		<td class="subMenuLateral">
+     		<a href="./admin/ventas.jsp">Consultar Ventas</a>
+        </td>
+      </tr><tr>
+   		<td class="subMenuLateral">
+     		<a href="./admin/ganancias.jsp">Consultar Ganancias</a>
+        </td>
+      </tr>
+      <tr>
+   		<td class="subMenuLateral, subCabeceraMenu">
+     		<b>&Uacute;ltima Semana</b>
+        </td>
+      </tr>
+      <tr>
    		<td class="subMenuLateral">
      		<a href="./admin/ventas.jsp">Consultar Ventas</a>
         </td>
