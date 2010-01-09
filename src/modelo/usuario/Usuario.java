@@ -2,6 +2,8 @@ package modelo.usuario;
 // default package
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -15,6 +17,9 @@ public class Usuario extends AbstractUsuario implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8416823229638920868L;
+	
+	@SuppressWarnings("unchecked")
+	private Set peliculas = new HashSet();
 
 	/** default constructor */
 	public Usuario() {
@@ -33,5 +38,14 @@ public class Usuario extends AbstractUsuario implements java.io.Serializable {
 		super(idUsuario, password, email, tipo, nombre, apellidos, telefono,
 				fecAcceso);
 	}
-   
+	/** métodos set hibernate **/
+	@SuppressWarnings("unchecked")
+	public Set getPeliculas() {
+		return peliculas;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void setPeliculas(Set peliculas){
+		this.peliculas = peliculas;
+	}
 }

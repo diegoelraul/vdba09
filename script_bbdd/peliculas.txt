@@ -28,12 +28,14 @@ CREATE TABLE PELICULA (
 	Precio DOUBLE (9,3)  NOT NULL,
 	Disponibilidad INT  NOT NULL,
 	Path_imagen VARCHAR(80) DEFAULT 'vacio',
-	anyo VARCHAR(4) NULL,
-	SIPNOSIS VARCHAR(500) NULL,
+	Anyo VARCHAR(4) NULL,
+	Sipnosis VARCHAR(1000) NULL,
+	Reparto VARCHAR(1000) NULL, /* nuevo */
 	CONSTRAINT PK_Pelicula
 	PRIMARY KEY (TITULO)
 ) ENGINE=MyISAM;
 
+/* No se usa ya...
 DROP TABLE IF EXISTS REPARTO;
 CREATE TABLE REPARTO (
 	Titulo VARCHAR(40) NOT NULL,
@@ -47,6 +49,7 @@ CREATE TABLE REPARTO (
 		REFERENCES Pelicula (TITULO)
 		ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=MyISAM;
+*/
 
 
 DROP TABLE IF EXISTS COMPRA;
@@ -79,25 +82,17 @@ INSERT INTO Usuario VALUES('Juanito', 'soytorpe','email@algo.es','cliente','juan
 INSERT INTO Usuario VALUES('AlvaroQueipo', 'comorrr','email@algo.es','cliente','alvaro','queipo','911231234','2010-01-03');
 INSERT INTO Usuario VALUES('Eva83','tomatesverdes','email@algo.es','cliente','eva', 'apellidos de eva', '987123789','2009-12-31');
 
-
 INSERT INTO Pelicula VALUES('Abajo el Telon', 'Joan', 'Fris y pedastal', 'Swahili', '2.00', '5.95', '10','vacio', '1954','Cantinflas, propietario de un negocio de limpieza, limpia las 
 ventanas de la casa de una famosa actriz de cine francesa. Mientras lleva a cabo su labor observa como un hombre roba uno de los famosos collares de la actriz, pero solo puede verlo de 
-espaldas.');
-INSERT INTO Reparto VALUES('Abajo el Telon', 'Mario', 'Moreno', 'Cantiflas');
-INSERT INTO Reparto VALUES('Abajo el Telon', 'Christine', 'Martell', 'Pepa');
-INSERT INTO Reparto VALUES('Abajo el Telon', 'Beatriz', 'Saavedra', 'Secundario');
+espaldas.', 'Mario Moreno (Cantiflas), Christine Martell (Pepa), Beatriz Saavedra (Secundario)');
 
 INSERT INTO Pelicula VALUES('A, B, C... Manhattan', 'Amir', 'Naderi', 'Spanglish', '1.90', '4.95', '28','vacio','1997','La vida de tres mujeres se entrecruza en Manhattan: Collen es madre 
-soltera; Kate esta en Manhattan para olvidar su pasado; y Kacey acaba de perder a su novio, a su mejor amiga y a su perro.');
-INSERT INTO Reparto VALUES('A, B, C... Manhattan', 'Maisy', 'Naderi', 'desconocido');
-INSERT INTO Reparto VALUES('A, B, C... Manhattan', 'Erin', 'Norris', 'mala');
-INSERT INTO Reparto VALUES('A, B, C... Manhattan', 'Sara', 'Paul', 'caballera');
+soltera; Kate esta en Manhattan para olvidar su pasado; y Kacey acaba de perder a su novio, a su mejor amiga y a su perro.', 'Maisy Naderi (desconocido), Erin Norris (mala), Sara Paul 
+(caballera)');
 
 INSERT INTO Pelicula VALUES('Nabonga, el gorila', 'Sam', 'Newfield', 'Frances', '1.90', '4.95', '2','vacio','1944','T.F. Stockwell malversa una valiosa cantidad de dinero y escapa de Egipto 
 en una avioneta con su hija Doreen. Pero la avioneta se estrella en medio de la selva y la pequena se queda sola hasta que conoce a un gorila que la protegera de los peligros de la vida 
-salvaje. Ambos conviven en paz, hasta que un dia dos hombres conocedores de la presencia del dinero aparecen para recuperarlo.');
-INSERT INTO Reparto VALUES('Nabonga, el gorila', 'Julie', 'London', 'Damisela');
-INSERT INTO Reparto VALUES('Nabonga, el gorila', 'Fifi', 'D Orsay', 'Gorila');
+salvaje. Ambos conviven en paz, hasta que un dia dos hombres conocedores de la presencia del dinero aparecen para recuperarlo.','Julie London (Damisela), Fifi D Orsay (Gorila)' );
 
 INSERT INTO Compra VALUES('pepitogrillo3', 'Nabonga, el gorila', '1999-03-22', '00:23:12','una direccion','tarjeta','1234111123452222');
 INSERT INTO Compra VALUES('YagoCampeon', 'Nabonga, el gorila', '2007-01-03', '00:23:12','una direccion','tarjeta','1234111123452222');
@@ -110,3 +105,4 @@ SELECT * FROM USUARIO;
 SELECT * FROM PELICULA;
 SELECT * FROM REPARTO;
 SELECT * FROM COMPRA;
+  

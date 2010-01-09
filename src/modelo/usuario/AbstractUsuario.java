@@ -122,6 +122,10 @@ public abstract class AbstractUsuario  implements java.io.Serializable {
 	public void setFecAcceso(Date fecAcceso) {
 		this.fecAcceso = fecAcceso;
 	}
+	
+	public String toString(){
+		return ("usuario:" +this.idUsuario + " nombre y apellidos: " +this.getNombre() +" " +this.getApellidos());
+	}
 
 
 }

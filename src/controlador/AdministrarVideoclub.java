@@ -84,7 +84,7 @@ public class AdministrarVideoclub {
 	 * @return
 	 * @throws VideoclubException
 	 */
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public Collection<Reparto> getReparto(String tituloPeli) throws VideoclubException{
 		
 		Collection<Reparto> ret = null;
@@ -108,9 +108,9 @@ public class AdministrarVideoclub {
 			throw new VideoclubException(e.getLocalizedMessage());
 		}		
 		return ret;
-	}
+	}*/
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public Collection<RepartoId> getReparto2(String tituloPeli) throws VideoclubException{
 		
 		ArrayList<RepartoId> ret = null;
@@ -127,7 +127,7 @@ public class AdministrarVideoclub {
 		
 			
 		return ret;
-	}
+	}*/
 		
 	/**
 	 * 
@@ -138,13 +138,28 @@ public class AdministrarVideoclub {
 		while(ite.hasNext()) System.out.println(ite.next().toString());		
 	}
 	
+
 	public static void main (String[] pepe) throws VideoclubException{
 		
-		AdministrarVideoclub av = new AdministrarVideoclub();
 		
+		AdministrarVideoclub av = new AdministrarVideoclub();		
 		av.mostrarColeccion(av.getPeliculasCatalogo());
-		System.out.println("Reparto de la peli Abajo el Telon:");
-		av.mostrarColeccion(av.getReparto("Abajo el Telon"));
+
+		/*
+		Session session;
+		session = HibernateSessionFactory.getSession().getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Usuario u = (Usuario) session.get(Usuario.class, "pepitogrillo37");
+		
+		System.out.println(u.toString());
+		Set s = u.getPeliculas();
+		Pelicula peli = new Pelicula("prueba hibernate","pepe","doble pepe","spanish",0.0,0.0,0,"vacio","1983","esto es una prueba de set con hibernate","reparto");
+		u.getPeliculas().add(peli);
+		Iterator t = s.iterator();
+		while (t.hasNext())
+			System.out.println( ((Pelicula) t.next()).toString());
+		
+		session.getTransaction().commit();*/
 	}
 	
 	
