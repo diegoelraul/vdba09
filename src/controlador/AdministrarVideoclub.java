@@ -10,7 +10,6 @@ import java.util.*;
 
 import modelo.compra.*;
 import modelo.pelicula.*;
-import modelo.reparto.*;
 import modelo.usuario.*;
 
 /*
