@@ -20,10 +20,14 @@
   <StrutsActivity path="/jsp/listaUsuarios" location="650,450" dimension="111,49" />
   <StrutsActivity path="/jsp/nuevaPelicula.jsp" location="650,650" dimension="134,49" />
   <StrutsActivity path="listaPeliculas.do" location="950,550" dimension="114,75" />
+  <StrutsActivity path="/listaCompras.do" />
+  <StrutsActivity path="/jsp/listaCompras.jsp" />
   <StrutsTransition id="/editarPelicula.do,elimReparto,listaPeliculas.do,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="173,594" />
-      <AbsolutePoint location="1007,587" />
+      <AbsolutePoint location="234,638" />
+      <AbsolutePoint location="234,1073" />
+      <AbsolutePoint location="977,1073" />
+      <AbsolutePoint location="977,625" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/editarPelicula.do,modifPeliculaSave,/listaPeliculas.do,1" routingType="0">
@@ -42,6 +46,12 @@
       <AbsolutePoint location="1007,625" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/listaCompras.do,listaCompras,/jsp/listaCompras.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/editarUsuario.do,eliminarUsuario,/jsp/eliminarUsuario.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="298,284" />
@@ -56,7 +66,13 @@
       <AbsolutePoint location="1073,438" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/listaUsuarios.do,showlist,/jsp/listaUsuarios.jsp,1" routingType="0">
+  <StrutsTransition id="/jsp/listaCompras.jsp,null,/listaCompras.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listaUsuarios.do,showlist,/jsp/listaUsuarios.jsp,1" routingType="1">
     <AutomaticBendpoints>
       <AbsolutePoint location="743,138" />
       <AbsolutePoint location="743,174" />

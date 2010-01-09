@@ -8,6 +8,7 @@
     <form-bean name="editarUsuarioForm" type="hibernate.struts.form.EditarUsuarioForm" />
     <form-bean name="listaPeliculasForm" type="hibernate.struts.form.ListaPeliculasForm" />
     <form-bean name="editarPeliculaForm" type="hibernate.struts.form.EditarPeliculaForm" />
+    <form-bean name="listaComprasForm" type="hibernate.struts.form.ListaComprasForm" />
 
   </form-beans>
 
@@ -86,6 +87,16 @@
       type="hibernate.struts.action.ListaPeliculasAction" >
       <forward name="showlist" path="/jsp/listaPeliculas.jsp" />
     </action>
+    <action
+      attribute="listaComprasForm"
+      input="/jsp/listaCompras.jsp"
+      name="listaComprasForm"
+      path="/listaCompras"
+      scope="request"
+      type="hibernate.struts.action.ListaComprasAction" >
+      <forward name="listaCompras" path="/jsp/listaCompras.jsp" />
+    </action>
+
     
 
   </action-mappings>
