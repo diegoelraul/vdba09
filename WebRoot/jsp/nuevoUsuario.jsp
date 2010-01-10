@@ -9,7 +9,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html:html lang="true">
   <head>
-    <html:base />
     
     <title>Alta de usuario</title>
 
@@ -18,29 +17,90 @@
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+
+	<link rel="stylesheet" type="text/css" href="./css/estilo.css">
 
   </head>
   
   <body>
+  <center>
+		<div id="cuerpo">
+			<%@include file="/inc/menu.jsp"%>
+			
+			<div id="menuAdm" style="float:left;">
+				<%@include file="/inc/menuAdm.jsp"%>
+			</div>
+			
+			<div id="user" style="float:right;">
+			<%
+			if (estaLoggeado()) { %>
+        		Bienvenido,         		
+			<%
+				out.println(obtenerNombreUsuario() + "<br />");
+			} else { %>
+        		<%@include file="/inc/login.jsp"%>
+			<%  } %>
+			</div>
  <html:form action="editarUsuario.do?do=nuevoUsuarioSave">
-<%-- print out the form data --%>
-<table border="1">
-<tbody>
-<tr><td>Usuario:</td><td><html:text property="idUsuario" /></td></tr>
-<tr><td>Password:</td><td><html:text property="password" /></td></tr>
-<tr><td>Nombre:</td><td><html:text property="nombre" /></td></tr>
-<tr><td>Apellidos:</td><td><html:text property="apellidos" /></td></tr>
-<tr><td>Email:</td><td><html:text property="email" /></td></tr>
-<tr><td>Teléfono:</td><td><html:text property="telefono" /></td></tr>
-<!-- Aquí se puede poner un checkbox para controlar el tipo -->
-<tr><td>Tipo:</td><td><html:text property="tipo" /></td></tr>
-<tr>
-<td><html:submit>Guardar</html:submit></td>
-<td><html:button property="back" onclick="location.href='listaUsuarios.do'">Cancelar</html:button></td>
-</tr>
-</html:form> 
+ 		
+			
+			<div id="content" style="float:left;">
+ 
+			<%-- print out the form data --%>
+			<table class="fondo">
+				<tbody>
+					<tr class="cabecera">
+						<td colspan=8>Nuevo Usuario / Visualizar Usuario</td>							
+					</tr>
+					<tr>
+						<td width="10px"></td>
+						<td>Id. Usuario:</td>
+						<td colspan=3><html:text property="idUsuario" /></td>
+						<td width="10px"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Contrase&ntilde;a:</td>
+						<td><html:text property="password" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Nombre:</td>
+						<td><html:text property="nombre" /></td>
+						<td>Apellidos:</td>
+						<td><html:text property="apellidos" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Correo electr&oacute;nico:</td>
+						<td colspan=3><html:text property="email" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Tel&eacute;fono:</td>
+						<td><html:text property="telefono" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Tipo de Usuario:</td>
+						<td><html:radio property="tipo" value="Cliente"/>Cliente
+							<html:radio property="tipo" value="Administrador"/>Administrador</td>
+					</tr>
+					<tr>
+						<td></td>							
+						<td colspan=6 style="text-align:right;">
+							<html:submit>Guardar</html:submit>
+							<html:button property="back" onclick="location.href='listaUsuarios.do'">Cancelar</html:button></td>
+						<td></td>
+					</tr>						
+</tbody>
+</table>
+
+</div>
+
+</html:form>
+</div>
+</center>
+ 
   </body>
 </html:html>
