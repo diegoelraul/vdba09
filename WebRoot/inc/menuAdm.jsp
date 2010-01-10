@@ -1,3 +1,5 @@
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+
 <br/>
   <div style="clear:both;">
     <table cellspacing=0 cellpadding=0>
@@ -11,12 +13,12 @@
       </tr>
       <tr>
         <td class="subMenuLateral">
-        	<a href="./admin/mtoPelicula.jsp">Nueva Pel&iacute;cula</a>
+        	<html:link action="editarPelicula.do?do=nuevaPelicula" property="add">Nueva Pel&iacute;cula</html:link>
         </td>
       </tr>
       <tr>
    		<td class="subMenuLateral">
-     		<a href="./admin/peliculas.jsp">Listado</a>
+     		<html:link action="listaPeliculas">Listado</html:link>
         </td>
       </tr>  
       <tr>
@@ -29,12 +31,12 @@
       </tr>
       <tr>
    		<td class="subMenuLateral">
-     		<a href="./admin/mtoUsuario.jsp">Nuevo Usuario</a>
+     		<html:link action="editarUsuario.do?do=nuevoUsuario" property="add">Nuevo Usuario</html:link>
         </td>
       </tr>
       <tr>
    		<td class="subMenuLateral">
-     		<a href="./admin/usuarios.jsp">Listado</a>
+     		<html:link action="listaUsuarios">Listado</html:link>
         </td>
       </tr>
       <tr>
