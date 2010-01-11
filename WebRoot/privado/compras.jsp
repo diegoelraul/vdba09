@@ -89,16 +89,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</table>
 			
-			<!-- SI NO SE HA SELECCIONADO NINGUNA PELICULA EN EL CARRITO -->
+	<!-- SI NO SE HA SELECCIONADO NINGUNA PELICULA EN EL CARRITO -->
 			<p>
 			No ha seleccionado ninguna pel&iacute;cula. El carrito est&aacute; vac&iacute;o.
 			</p>
-			<!-- SI SE ACABA DE REALIZAR LA COMPRA -->
+	<!-- SI SE ACABA DE REALIZAR LA COMPRA -->
 			<p>
-			La compra se ha realizado con &eacute;xito.<br/>
+			La compra se ha realizado con &eacute;xito. 
 			<%
 					out.println("<a href=\""+request.getScheme()+"://"+request.getServerName()+":"+
-								request.getServerPort()+request.getContextPath()+"/factura.jsp\" "+
+								request.getServerPort()+request.getContextPath()+"/privado/factura.jsp\" "+
 								"target=\"new\">Ver factura.</a>");
 			%> 
 			<br/>

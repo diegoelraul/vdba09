@@ -86,7 +86,7 @@
 					<%-- si no hay películas en el catálogo se despiega un mensaje --%>
 					<logic:notPresent name="pelicula">
 					<tr>
-						<td class="fondo" colspan="5">El catálogo está vacío.</td>
+						<td class="fondo" colspan="7">El catálogo está vacío.</td>
 					</tr>
 					</logic:notPresent> 
 			

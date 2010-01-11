@@ -36,8 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<b>Yago Casal</b>, como Arquitecto Software.<br/>
 			<b>Guillermo Solano</b>, como Administrador de Bases de Datos.<br/>
 			<b>Alvaro Queipo</b>, como Administrador de Sistemas.<br/>
-			<b>Elisa Diez</b>, como Añalista Programadora.<br/>
-			<b>Daniel Torrico</b>, como Añalista Programador.<br/>
+			<b>Elisa Diez</b>, como Analista Programadora.<br/>
+			<b>Daniel Torrico</b>, como Analista Programador.<br/>
 			<b>Eva Higueras</b>, como Diseñadora de la Interfaz de Usuario.<br/>
 			</p>
 			<br/><br/><br/><br/><br/>

@@ -55,7 +55,8 @@
 					<tr>
 						<td width="10px"></td>
 						<td>Id. Usuario:</td>
-						<td colspan=3><html:text property="idUsuario" /></td>
+						<td colspan=2><html:text property="idUsuario" /></td>
+						<td rowspan="2" align="right"><img src="./images/usuario.png" width="50px"/></td>
 						<td width="10px"></td>
 					</tr>
 					<tr>
@@ -69,6 +70,7 @@
 						<td><html:text property="nombre" /></td>
 						<td>Apellidos:</td>
 						<td><html:text property="apellidos" /></td>
+						
 					</tr>
 					<tr>
 						<td></td>
