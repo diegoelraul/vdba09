@@ -9,17 +9,15 @@
     <form-bean name="listaPeliculasForm" type="hibernate.struts.form.ListaPeliculasForm" />
     <form-bean name="editarPeliculaForm" type="hibernate.struts.form.EditarPeliculaForm" />
     <form-bean name="listaComprasForm" type="hibernate.struts.form.ListaComprasForm" />
-
+    <form-bean name="loginForm" type="hibernate.struts.form.LoginForm" />
   </form-beans>
-
+ 
   <global-exceptions />
   <global-forwards >
     <forward
       name="welcomeAdm"
       path="/administrador.do"
       redirect="true" />
-    
-
   </global-forwards>
 
   <action-mappings >
@@ -32,6 +30,24 @@
       scope="request"
       type="hibernate.struts.action.ListaUsuariosAction" >
       <forward name="showlist" path="/jsp/listaUsuarios.jsp" />
+    </action>
+    <action
+      attribute="listaPeliculasForm"
+      input="/jsp/listaPeliculas.jsp"
+      name="listaPeliculasForm"
+      path="/listaPeliculas"
+      scope="request"
+      type="hibernate.struts.action.ListaPeliculasAction" >
+      <forward name="showlist" path="/jsp/listaPeliculas.jsp" />
+    </action>
+    <action
+      attribute="listaComprasForm"
+      input="/jsp/listaCompras.jsp"
+      name="listaComprasForm"
+      path="/listaCompras"
+      scope="request"
+      type="hibernate.struts.action.ListaComprasAction" >
+      <forward name="showlist" path="/jsp/listaCompras.jsp" />
     </action>
     <action
       attribute="editarUsuarioForm"
@@ -78,26 +94,12 @@
         path="listaPeliculas.do"
         redirect="true" />
     </action>
-    <action
-      attribute="listaPeliculasForm"
-      input="/jsp/listaPeliculas.jsp"
-      name="listaPeliculasForm"
-      path="/listaPeliculas"
-      scope="request"
-      type="hibernate.struts.action.ListaPeliculasAction" >
-      <forward name="showlist" path="/jsp/listaPeliculas.jsp" />
+    <action path="/addCompra" type="hibernate.struts.action.AddCompraAction" >
+      <forward
+      name="showlist"
+      path="/listaPeliculas.do"
+      redirect="true" />
     </action>
-    <action
-      attribute="listaComprasForm"
-      input="/jsp/listaCompras.jsp"
-      name="listaComprasForm"
-      path="/listaCompras"
-      scope="request"
-      type="hibernate.struts.action.ListaComprasAction" >
-      <forward name="listaCompras" path="/jsp/listaCompras.jsp" />
-    </action>
-
-    
 
   </action-mappings>
 
