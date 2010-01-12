@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * @struts.action validate="true"
  */
 public class AddCompraAction extends Action {
-	/* 
+	/*
 	 * Generated Methods
 	 */
 	List<String> compras=new ArrayList<String>();
