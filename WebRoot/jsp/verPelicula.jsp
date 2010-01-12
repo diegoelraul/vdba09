@@ -12,7 +12,7 @@
   <head>
     <html:base />
     
-    <title>verUsuario.jsp</title>
+    <title>Pelicula</title>
 
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -54,33 +54,12 @@
 <td><bean:write name="editarPeliculaForm" property="coste" /></td>
 <td><bean:write name="editarPeliculaForm" property="pathImagen" /></td>
 <td><bean:write name="editarPeliculaForm" property="disponibilidad" /></td>
-</table>
+</tr></tbody></table>
 Reparto:
-<table border="1">
-<tr><td>Nombre</td><td>Apellidos</td><td>Personaje</td>
-
-<logic:iterate name="editarPeliculaForm" property="reparto" id="reparto" indexId="idx">
-<tr>
-<td><bean:write name="reparto" property="id.nombre" /></td>
-<td><bean:write name="reparto" property="id.apellidos" /></td>
-<td><bean:write name="reparto" property="personaje" /></td>
-<html:hidden name="editarPeliculaForm" property="titulo" />
-<td><html:link action="editarPelicula.do?do=elimReparto" 
-paramName="reparto"
-paramProperty="personaje"
-paramId="personaje"
->Eliminar personaje</html:link></td>
-</tr>
-</logic:iterate> 
-<%-- end interate --%>
-
-<%-- if books cannot be found display a text --%>
-<logic:notPresent name="reparto">
-<tr>
-<td colspan="5">No hay información sobre el reparto.</td>
-</tr>
-</logic:notPresent>
+<table>
+<td><bean:write name="editarPeliculaForm" property="reparto" /></td>
 </table>
+
 <html:link action="editarPelicula.do?do=modifPelicula" 
 paramName="editarPeliculaForm" 
 paramProperty="titulo" 

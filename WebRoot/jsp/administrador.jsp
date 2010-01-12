@@ -30,6 +30,9 @@
   <html:link action="listaUsuarios">Administrar usuarios</html:link>
   <br>
   <html:link action="listaPeliculas">Administrar peliculas</html:link>
+  <br>
+  <html:link action="listaCompras">Consulta de compras</html:link>
+  <br>
   </body>
 </html:html>
 

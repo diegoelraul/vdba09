@@ -38,7 +38,7 @@
 <tr><td>Coste:</td><td><html:text property="coste" /></td></tr>
 <tr><td>Imagen:</td><td><html:text property="pathImagen" /></td></tr>
 <tr><td>Disponibilidad:</td><td><html:text property="disponibilidad" /></td></tr>
-<tr><td>Titulo:</td><td><html:text property="titulo" /></td></tr>
+<tr><td>Reparto:</td><td><html:textarea property="reparto" cols="50" rows="10" readonly="true" /></td></tr>
 <tr><td><html:submit>Guardar</html:submit></td><td><html:button property="back" 
 onclick="location.href='listaPeliculas.do'">Cancelar</html:button>
 </td>
