@@ -25,7 +25,7 @@ public abstract class AbstractPelicula  implements java.io.Serializable {
     private Integer disponibilidad;
     private String pathImagen;
 	private String anyo;
-	private String sipnosis;
+	private String sinopsis;
 	private String reparto;
 
 	// Constructors
@@ -48,6 +48,7 @@ public abstract class AbstractPelicula  implements java.io.Serializable {
 			String apellidosDirector, String idioma, double coste,
 			double precio, Integer disponibilidad, String pathImagen,
 			String anyo, String sipnosis, String reparto) {
+
 		this.titulo = titulo;
 		this.nombreDirector = nombreDirector;
 		this.apellidosDirector = apellidosDirector;
@@ -57,7 +58,7 @@ public abstract class AbstractPelicula  implements java.io.Serializable {
 		this.disponibilidad = disponibilidad;
 		this.pathImagen = pathImagen;
 		this.anyo = anyo;
-		this.sipnosis = sipnosis;
+		this.sinopsis = sinopsis;
 		this.setReparto(reparto);
 	}
 
@@ -135,12 +136,12 @@ public abstract class AbstractPelicula  implements java.io.Serializable {
 		this.anyo = anyo;
 	}
 
-	public String getSipnosis() {
-		return this.sipnosis;
+	public String getSinopsis() {
+		return this.sinopsis;
 	}
 
-	public void setSipnosis(String sipnosis) {
-		this.sipnosis = sipnosis;
+	public void setSinopsis(String sinopsis) {
+		this.sinopsis = sinopsis;
 	}
 
     public String toString(){

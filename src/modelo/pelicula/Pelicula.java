@@ -31,6 +31,7 @@ public class Pelicula extends AbstractPelicula implements java.io.Serializable {
 			double precio, Integer disponibilidad, String pathImagen,
 			String anyo, String sipnosis,String reparto) {
         super(titulo, nombreDirector, apellidosDirector, idioma, coste, precio, disponibilidad, pathImagen,anyo,sipnosis,reparto);        
+
     }
    
 }

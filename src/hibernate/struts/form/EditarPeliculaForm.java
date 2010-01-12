@@ -9,7 +9,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import modelo.pelicula.Pelicula;
-import modelo.reparto.Reparto;
+
 
 /** 
  * MyEclipse Struts
@@ -21,7 +21,7 @@ import modelo.reparto.Reparto;
 public class EditarPeliculaForm extends ActionForm {
 	
 	private Pelicula pelicula=new Pelicula();
-	private Reparto[] reparto=new Reparto[0];
+	//private Reparto[] reparto=new Reparto[0];
 	
 	/*
 	 * Generated Methods
@@ -48,14 +48,14 @@ public class EditarPeliculaForm extends ActionForm {
 		// TODO Auto-generated method stub
 	}
 	
-	public Reparto[] getReparto(){
+/*	public Reparto[] getReparto(){
 		return reparto;
 	}
 	
 	public void setReparto(Reparto[] reparto){
 		this.reparto=reparto;
 	}
-
+*/
 	public Pelicula getPelicula() {
 		return pelicula;
 	}
@@ -142,5 +142,9 @@ public class EditarPeliculaForm extends ActionForm {
 	
 	public void setSinopsis(String sinopsis){
 		pelicula.setSinopsis(sinopsis);
+	}
+	
+	public String getReparto(){
+		return pelicula.getReparto();
 	}
 }

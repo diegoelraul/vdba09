@@ -59,7 +59,7 @@ public class EditarPeliculaAction extends DispatchAction {
 		System.out.println("Se ha solicitado ver detalle de película:"+request.getParameter("titulo"));
 		System.out.println(editarPeliculaForm);
 		editarPeliculaForm.setPelicula(admin.getPelicula(request.getParameter("titulo")));
-		editarPeliculaForm.setReparto(admin.listarReparto(request.getParameter("titulo")));
+		//editarPeliculaForm.setReparto(admin.listarReparto(request.getParameter("titulo")));
 //		response.setAttribute("pel",admin.getPelicula(request.getParameter("titulo")));
 		return mapping.findForward("verPelicula");
 	}
@@ -137,8 +137,9 @@ public class EditarPeliculaAction extends DispatchAction {
 		Double precio=new Double(request.getParameter("precio"));
 		String anyo=request.getParameter("anyo");
 		String sinopsis=request.getParameter("sinopsis");
+		String reparto=request.getParameter("reparto");
 		Pelicula newPeli=new Pelicula(titulo,nombreDirector,apellidosDirector,
-				idioma,coste,precio,disponibilidad,pathImagen,anyo,sinopsis);
+				idioma,coste,precio,disponibilidad,pathImagen,anyo,sinopsis,reparto);
 		TestModelo admin=new TestModelo();
 		admin.modificarPelicula(titulo,newPeli);
 		return mapping.findForward("modifPeliculaSave");
@@ -159,13 +160,13 @@ public class EditarPeliculaAction extends DispatchAction {
 		Double precio=new Double(request.getParameter("coste"));
 		String anyo=request.getParameter("anyo");
 		String sinopsis=request.getParameter("sinopsis");
-		
+		String reparto=request.getParameter("reparto");
 		System.out.println(titulo+" "+apellidosDirector+" "+nombreDirector+" "+coste+" "+disponibilidad);
 		
 		Date fecAcceso=new Date();
 		TestModelo admin=new TestModelo();
 		admin.crearPelicula(titulo,nombreDirector,apellidosDirector,
-				idioma,coste,precio,disponibilidad,pathImagen,anyo,sinopsis);
+				idioma,coste,precio,disponibilidad,pathImagen,anyo,sinopsis,reparto);
 		System.out.println("La pelicula se ha creado");
 		return mapping.findForward("nuevaPeliculaSave");
 	}

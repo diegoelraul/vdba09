@@ -11,7 +11,6 @@ import modelo.*;
 import modelo.usuario.*;
 import modelo.compra.*;
 import modelo.pelicula.*;
-import modelo.reparto.*;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -44,7 +43,7 @@ public class TestModelo {
 			//libraryTest.listarPeliculas();
 			//libraryTest.listarReparto("Abajo el telon");
 			//libraryTest.getReparto("Abajo el Telon","Mario","Moreno");
-			libraryTest.listarCompra();
+			libraryTest.listarCompras();
 			//libraryTest.createCustomer();
 			//libraryTest.createRelation();
 			//libraryTest.deleteCustomer();
@@ -128,7 +127,7 @@ public class TestModelo {
 	}
 	
 	public Usuario getUsuario(String usuarioId){
-		System.out.println("getUsuario");
+		System.out.println("getUsuario:"+usuarioId);
 		setSession(HibernateSessionFactory.getSession());
 		Transaction tx=session.beginTransaction();
 		try{
@@ -170,14 +169,14 @@ public class TestModelo {
 	public Boolean crearPelicula(String titulo, String nombreDirector,
 			String apellidosDirector, String idioma, double coste,
 			double precio, Integer disponibilidad, String pathImagen,
-			String anyo, String sinopsis){
+			String anyo, String sinopsis,String reparto){
 		System.out.println("crear pelicula");
 		setSession(HibernateSessionFactory.getSession());
 		Transaction tx=session.beginTransaction();
 		try{
 			PeliculaDAO peliculaDAO=new PeliculaDAO();
 			peliculaDAO.save(new Pelicula(titulo,nombreDirector,apellidosDirector,
-					idioma,coste,precio,disponibilidad,pathImagen,anyo,sinopsis));
+					idioma,coste,precio,disponibilidad,pathImagen,anyo,sinopsis,reparto));
 			tx.commit();
 			return true;
 		}catch(HibernateException e){
@@ -221,7 +220,7 @@ public class TestModelo {
 			peliculas=peliculaDAO.findAll();
 			for(Iterator iter=peliculas.iterator();iter.hasNext();){
 				Pelicula aux=(Pelicula)iter.next();
-				System.out.println(aux.getTitulo()+" "+aux.getSinopsis());
+				//System.out.println(aux.getTitulo()+" "+aux.getSinopsis());
 			}
 			tx.commit();
 		}catch(HibernateException e){
@@ -241,7 +240,7 @@ public class TestModelo {
 				if(tofind==null)
 					System.out.println("La pelicula especificada no existe");
 				else{
-					System.out.println(tofind.getSinopsis());
+					//System.out.println(tofind.getSinopsis());
 					tx.commit();
 					return tofind;
 				}
@@ -277,7 +276,7 @@ public class TestModelo {
 // ----------------------------
 // Gestión de datos de Reparto
 // ----------------------------
-	public Boolean crearReparto(String titulo,String nombre,String apellidos,String personaje){
+/*	public Boolean crearReparto(String titulo,String nombre,String apellidos,String personaje){
 		System.out.println("crear reparto");
 		setSession(HibernateSessionFactory.getSession());
 		Transaction tx=session.beginTransaction();
@@ -355,7 +354,7 @@ public class TestModelo {
 					for(Iterator iter=repartoId.iterator();iter.hasNext();){
 						reparto.add((Reparto)session.get(Reparto.class,(RepartoId)iter.next()));
 					}*/
-			RepartoDAO repartoDAO=new RepartoDAO();
+/*			RepartoDAO repartoDAO=new RepartoDAO();
 			reparto=repartoDAO.findAll();
 			for(Iterator iter=reparto.iterator();iter.hasNext();){
 				Reparto aux=(Reparto)iter.next();
@@ -394,7 +393,7 @@ public class TestModelo {
 		}
 		return null;
 	}
-
+*/
 // ----------------------------
 // Gestión de datos de Compra
 // ----------------------------
@@ -417,16 +416,19 @@ public class TestModelo {
 		return false;
 	}
 
-	public Compra[] listarCompra(){
+	public Compra[] listarCompras(){
 		System.out.println("listar compras");
 		List compra=new ArrayList();
 		List res=new ArrayList();
+		setSession(HibernateSessionFactory.getSession());
 		Transaction tx=session.beginTransaction();
 		try{
 			CompraDAO compraDAO=new CompraDAO();
 			compra=compraDAO.findAll();
 			for(Iterator iter=compra.iterator();iter.hasNext();){
-				res.add((Compra)session.get(Compra.class,(CompraId)iter.next()));
+				Compra aux=(Compra)iter.next();
+				res.add(aux);
+				System.out.println(aux.getId().getUsuario()+" "+aux.getId().getPelicula());
 			}
 			tx.commit();
 		}catch(HibernateException e){
@@ -435,6 +437,28 @@ public class TestModelo {
 			e.printStackTrace();
 		}
 		return (Compra[])res.toArray(new Compra[0]);
+	}
+	
+	public String validatePassword(String usuario,String password){
+		System.out.println("Se ha solicitado verificar al usuario: "+usuario);
+		try{
+			Usuario user=getUsuario(usuario);//(new UsuarioDAO()).findById(usuario);
+			if(user==null)return "NE";
+			if(user.getPassword().equals(password))return "OK";
+			
+		}catch(HibernateException e){
+			System.out.println("No se han podido verificar los datos de usuario");
+			e.printStackTrace();
+		}return "PW";
+	}
+	public String getPerfil(String usuario){
+		try{
+			return getUsuario(usuario).getTipo();
+		}catch(HibernateException e){
+			System.out.println("No se podido obtener el perfil del usuario");
+			e.printStackTrace();
+		}
+		return "guest";
 	}
 /*
 	public Compra getCompra(String titulo,String nombre,String apellidos){
@@ -472,118 +496,6 @@ public class TestModelo {
 		}
 	}
 	
-	
-/*	public void createCustomer(){
-		System.out.println("create customer");
-		try{
-			Transaction tx=session.beginTransaction();
-			Customer customer=new Customer();
-			customer.setLastname("Fitz");
-			customer.setName("Jhon");
-			customer.setAge(new Integer(25));
-			session.save(customer);
-			tx.commit();
-		}catch(HibernateException e){
-			e.printStackTrace();
-		}
-	}
-	
-	private void createRelation(){
-		System.out.println("create relation");
-		try{
-			Transaction tx=session.beginTransaction();
-			Customer customer=new Customer();
-			customer.setLastname("Schmidt");
-			customer.setName("Jim");
-			customer.setAge(new Integer(25));
-			session.save(customer);
-			Book book=new Book();
-			book.setAuthor("Gerhard Petter");
-			book.setTitle("Gerhards biography");
-			book.setAvailable(Boolean.TRUE);
-			session.save(book);
-			Book book2=new Book();
-			book2.setAuthor("Karl May");
-			book2.setTitle("Wildes Kurdistan");
-			book2.setAvailable(Boolean.TRUE);
-			session.save(book2);
-			session.flush();
-			book.setCustomer(customer);
-			book2.setCustomer(customer);
-			tx.commit();
-			session.refresh(customer);
-			tx=session.beginTransaction();
-			if(customer.getBooks()!=null){
-				System.out.println("list books");
-				for(Iterator iter=customer.getBooks().iterator();iter.hasNext();){
-					Book element=(Book)iter.next();
-					System.out.println("customer: "+element.getCustomer());
-					System.out.println("customer is now:"+element.getCustomer());
-				}
-			}
-			tx.commit();
-		}catch(HibernateException e){
-			e.printStackTrace();
-		}
-	}
-	
-	private void deleteCustomer(){
-		System.out.println("delete customer");
-		try{
-			Transaction tx=session.beginTransaction();
-			Customer customer=new Customer();
-			customer.setLastname("Wumski");
-			customer.setName("Gerhard");
-			customer.setAge(new Integer(25));
-			session.save(customer);
-			Book book=new Book();
-			book.setAuthor("Tim Tom");
-			book.setTitle("My new biography");
-			book.setAvailable(Boolean.TRUE);
-			session.save(book);
-			book.setCustomer(customer);
-			tx.commit();
-			tx=session.beginTransaction();
-			session.refresh(customer);
-			session.delete(customer);
-			tx.commit();
-		}catch(HibernateException e){
-			e.printStackTrace();
-			
-		}
-	}
-	
-	private void listBooks(){
-		System.out.println("list customers");
-		Criteria query;
-		Transaction tx;
-		List customers=new ArrayList();
-		List books=new ArrayList();
-		try{
-			tx=session.beginTransaction();
-			query=session.createCriteria(Customer.class);
-			customers=query.list();
-			for(Iterator iter=customers.iterator();iter.hasNext();){
-				System.out.println((Customer)iter.next());
-			}
-			tx.commit();
-		}catch(HibernateException e){
-			e.printStackTrace();
-		}
-		System.out.println("list books");
-		try{
-			tx=session.beginTransaction();
-			query=session.createCriteria(Book.class);
-			books=query.list();
-			for(Iterator iter=books.iterator();iter.hasNext();){
-				System.out.println((Book)iter.next());
-			}
-			tx.commit();
-		}catch(HibernateException e){
-			e.printStackTrace();
-		}
-	}
-*/	
 	public Session getSession(){
 		return session;
 	}
