@@ -27,7 +27,7 @@ CREATE TABLE PELICULA (
 	Coste DOUBLE (9,3)  NOT NULL,
 	Precio DOUBLE (9,3)  NOT NULL,
 	Disponibilidad INT  NOT NULL,
-	Path_imagen VARCHAR(80) DEFAULT 'vacio',
+	Path_imagen VARCHAR(80) DEFAULT './caratulas/nodisponible.jpg',
 	Anyo VARCHAR(4) NULL,
 	Sipnosis VARCHAR(1000) NULL,
 	Reparto VARCHAR(1000) NULL, /* nuevo */
