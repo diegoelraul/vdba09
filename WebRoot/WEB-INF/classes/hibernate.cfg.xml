@@ -21,7 +21,6 @@
 	<property name="myeclipse.connection.profile">peliculas</property>
 	<property name="current_session_context_class">thread</property>
 	<mapping resource="./Usuario.hbm.xml" />
-	<mapping resource="./Reparto.hbm.xml" />
 	<mapping resource="./Pelicula.hbm.xml" />
 	<mapping resource="./Compra.hbm.xml" />
 

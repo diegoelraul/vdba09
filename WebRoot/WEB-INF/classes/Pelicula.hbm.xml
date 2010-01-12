@@ -35,7 +35,10 @@
             <column name="anyo" length="4" />
         </property>
         <property name="sinopsis" type="string">
-            <column name="SIPNOSIS" length="500" />
+            <column name="SIPNOSIS" length="1000" />
+        </property>
+                <property name="reparto" type="string">
+            <column name="REPARTO" length="1000" />
         </property>
     </class>
 </hibernate-mapping>

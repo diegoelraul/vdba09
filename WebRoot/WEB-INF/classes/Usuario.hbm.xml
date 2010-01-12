@@ -31,6 +31,10 @@
         <property name="fecAcceso" type="date">
             <column name="Fec_acceso" length="10" not-null="true" />
         </property>
+        <set name="peliculas" table="compra" >
+        	<key column="titulo"/>
+        	<many-to-many class="modelo.pelicula.Pelicula" column="Titulo"></many-to-many>
+        </set>
     </class>
 </hibernate-mapping>
 
