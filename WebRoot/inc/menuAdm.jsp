@@ -11,16 +11,19 @@
         	<img src="./images/cabfin.gif"/>
         </td>
       </tr>
+      <% if(esAdministrador()){%>
       <tr>
         <td class="subMenuLateral">
         	<html:link action="editarPelicula.do?do=nuevaPelicula" property="add">Nueva Pel&iacute;cula</html:link>
         </td>
       </tr>
+      <% } %>
       <tr>
    		<td class="subMenuLateral">
      		<html:link action="listaPeliculas">Listado</html:link>
         </td>
       </tr>  
+      <% if(esAdministrador()){ %>
       <tr>
    		<td class="menuLateral">
      		Usuarios
@@ -29,17 +32,20 @@
         	<img src="./images/cabfin.gif"/>
         </td>
       </tr>
+      
       <tr>
    		<td class="subMenuLateral">
      		<html:link action="editarUsuario.do?do=nuevoUsuario" property="add">Nuevo Usuario</html:link>
         </td>
       </tr>
+     
       <tr>
    		<td class="subMenuLateral">
      		<html:link action="listaUsuarios">Listado</html:link>
         </td>
       </tr>
       <tr>
+       <% } %>
         <td class="menuLateral">
         	Actividad
         </td> 

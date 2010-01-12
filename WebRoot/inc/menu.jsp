@@ -1,39 +1,49 @@
 <%@page import="modelo.usuario.Usuario"%>
 <%!
-	private Usuario usuario;
+	//private Usuario usuario;
+	private String username="invitado";
+	private String perfil="invitado";
+	private boolean estaLogg; 
+	private boolean esAdmin;
 
 	private boolean estaLoggeado() {
-		//return (usuario != null);
-		//EMHA - PARA PRUEBAS!! 
-		return true;
+	return estaLogg;
 	}
-	
+
 	private boolean esAdministrador() {
 		if (!estaLoggeado()) {
 			return false;
 		}else
-			return obtenerNombreUsuario() == "root"; /*EMHA: constante de configuracion*/
+			return esAdmin;
 	}
-	
+
 	private String obtenerNombreUsuario() {
 		if (!estaLoggeado()) {
 			return "";
 		}else
-			//return usuario.getIdUsuario();
-			//EMHA - PARA PRUEBAS!! 
-			return "root";
+			return username;
 	}
 
-	//EMHA. NO SE ESTA UTILIZANDO. RESTRINGIR ACCESO POR URL
 	private void comprobarLogin() throws NullPointerException {
 		if (!estaLoggeado()) {
 			throw (new NullPointerException(
 					"No puede acceder a esta página sin iniciar sesión previamente"));
 		}
-	}%>
+	}
+	%>
 
-<%
-	usuario = (Usuario) session.getAttribute("usuario");
+<%  System.out.println("Finalmente entramos en la aplicación");
+	username = (String)session.getAttribute("username");
+	System.out.println("Initvalues: \n username: "+username);
+	perfil=(String)session.getAttribute("perfil");
+	System.out.println("Initvalues: \n perfil: "+perfil);
+	estaLogg=!username.equals("invitado");
+	//System.out.println("Initvalues: \n estaLoggeado: "+estaLoggeado);
+	esAdmin=perfil.equals("administrador");
+	System.out.println("Es administrador?"+esAdministrador());
+	//System.out.println("Initvalues: \n esAdministrador: "+esAdministrador);
+	//System.out.println("Initvalues: \n username: "+username+"\nperfil: "+perfil+"\n\r estaLoggeado: "+estaLoggeado+"\nesadministrador:"+esAdministrador);
+	
 %>
   <div style="float:left;width:208px;text-align:left;">
     <img src="./images/cinta4.jpg"/>

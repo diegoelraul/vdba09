@@ -1,5 +1,5 @@
 
-    <form ID="autenticacion" action="">
+    <form ID="autenticacion" action="./servlet/AdminSession" method="POST">
 		<table cellspacing="0" cellpadding="0" width="280px">
 		<tr>
 			<td class="bloqueLT">&nbsp;</td>
@@ -15,14 +15,14 @@
 			<td class="bloqueL">&nbsp;</td>
 			<td class="bloque" style="text-align:right">Usuario:</td>
 			<td class="bloque" style="width:10px;"></td>
-			<td class="bloque" ><input type="text" property="user"  size="13"/></td>
+			<td class="bloque" ><input type="text" name="usuario"  size="13"/></td>
 			<td class="bloqueR">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="bloqueL">&nbsp;</td>
 			<td class="bloque" style="text-align:right">Password:</td>
 			<td class="bloque" style="width:10px;"></td>
-			<td class="bloque" ><input type="password" property="password"  size="13"/></td>
+			<td class="bloque" ><input type="password" name="password"  size="13"/></td>
 			<td class="bloqueR">&nbsp;</td>
 		</tr>
 		<tr>
