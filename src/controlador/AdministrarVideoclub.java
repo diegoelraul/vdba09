@@ -10,7 +10,6 @@ import java.util.*;
 
 import modelo.compra.*;
 import modelo.pelicula.*;
-import modelo.reparto.*;
 import modelo.usuario.*;
 
 /*
@@ -84,7 +83,7 @@ public class AdministrarVideoclub {
 	 * @return
 	 * @throws VideoclubException
 	 */
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public Collection<Reparto> getReparto(String tituloPeli) throws VideoclubException{
 		
 		Collection<Reparto> ret = null;
@@ -127,7 +126,7 @@ public class AdministrarVideoclub {
 		
 			
 		return ret;
-	}
+	}*/
 		
 	/**
 	 * 
@@ -143,8 +142,7 @@ public class AdministrarVideoclub {
 		AdministrarVideoclub av = new AdministrarVideoclub();
 		
 		av.mostrarColeccion(av.getPeliculasCatalogo());
-		System.out.println("Reparto de la peli Abajo el Telon:");
-		av.mostrarColeccion(av.getReparto("Abajo el Telon"));
+
 	}
 	
 	

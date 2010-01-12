@@ -7,19 +7,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Date;
 
-import modelo.*;
 import modelo.usuario.*;
 import modelo.compra.*;
 import modelo.pelicula.*;
 
-import org.hibernate.Criteria;
+//import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Expression;
-import org.hibernate.criterion.MatchMode;
+//import org.hibernate.criterion.Expression;
+//import org.hibernate.criterion.MatchMode;
 
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 
 
 public class TestModelo {
@@ -106,6 +105,7 @@ public class TestModelo {
 		return false;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Usuario[] listarUsuarios(){
 		System.out.println("listar usuarios");
 		List usuarios=new ArrayList();
@@ -210,6 +210,7 @@ public class TestModelo {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Pelicula[] listarPeliculas(){
 		System.out.println("listar peliculas");
 		List peliculas=new ArrayList();
@@ -219,6 +220,7 @@ public class TestModelo {
 			PeliculaDAO peliculaDAO=new PeliculaDAO();
 			peliculas=peliculaDAO.findAll();
 			for(Iterator iter=peliculas.iterator();iter.hasNext();){
+				@SuppressWarnings("unused")
 				Pelicula aux=(Pelicula)iter.next();
 				//System.out.println(aux.getTitulo()+" "+aux.getSinopsis());
 			}
@@ -416,6 +418,7 @@ public class TestModelo {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Compra[] listarCompras(){
 		System.out.println("listar compras");
 		List compra=new ArrayList();
