@@ -106,7 +106,7 @@ public class TestModelo {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Usuario[] listarUsuarios(){
+	public Object[] listarUsuarios(){
 		System.out.println("listar usuarios");
 		List usuarios=new ArrayList();
 		setSession(HibernateSessionFactory.getSession());
@@ -123,7 +123,8 @@ public class TestModelo {
 			rollback(tx);
 			e.printStackTrace();
 		}
-		return (Usuario[])usuarios.toArray(new Usuario[0]);
+		//return (Usuario[])usuarios.toArray(new Usuario[0]);
+		return usuarios.toArray();
 	}
 	
 	public Usuario getUsuario(String usuarioId){
@@ -151,9 +152,11 @@ public class TestModelo {
 		setSession(HibernateSessionFactory.getSession());
 		Transaction tx=session.beginTransaction();
 		try{
-			old.setIdUsuario(newUser.getIdUsuario());
+			newUser.setIdUsuario(old.getIdUsuario());
+			/*old.setIdUsuario(newUser.getIdUsuario());
 			old.setPassword(newUser.getPassword());
-			old.setFecAcceso(newUser.getFecAcceso());
+			old.setFecAcceso(newUser.getFecAcceso());*/
+			this.getSession().saveOrUpdate(newUser);
 			tx.commit();
 		}catch(HibernateException e){
 			rollback(tx);
@@ -211,7 +214,7 @@ public class TestModelo {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Pelicula[] listarPeliculas(){
+	public Object[] listarPeliculas(){
 		System.out.println("listar peliculas");
 		List peliculas=new ArrayList();
 		setSession(HibernateSessionFactory.getSession());
@@ -220,9 +223,8 @@ public class TestModelo {
 			PeliculaDAO peliculaDAO=new PeliculaDAO();
 			peliculas=peliculaDAO.findAll();
 			for(Iterator iter=peliculas.iterator();iter.hasNext();){
-				@SuppressWarnings("unused")
 				Pelicula aux=(Pelicula)iter.next();
-				//System.out.println(aux.getTitulo()+" "+aux.getSinopsis());
+				System.out.println(aux.getTitulo());
 			}
 			tx.commit();
 		}catch(HibernateException e){
@@ -230,7 +232,7 @@ public class TestModelo {
 			rollback(tx);
 			e.printStackTrace();
 		}
-		return (Pelicula[])peliculas.toArray(new Pelicula[0]);
+		return peliculas.toArray();
 	}
 
 	public Pelicula getPelicula(String titulo){
@@ -419,7 +421,7 @@ public class TestModelo {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Compra[] listarCompras(){
+	public Object[] listarCompras(){
 		System.out.println("listar compras");
 		List compra=new ArrayList();
 		List res=new ArrayList();
@@ -439,7 +441,7 @@ public class TestModelo {
 			rollback(tx);
 			e.printStackTrace();
 		}
-		return (Compra[])res.toArray(new Compra[0]);
+		return res.toArray();
 	}
 	
 	public String validatePassword(String usuario,String password){
